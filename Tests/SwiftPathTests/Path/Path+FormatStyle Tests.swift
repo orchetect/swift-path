@@ -1,0 +1,39 @@
+//
+//  Path+FormatStyle Tests.swift
+//  SwiftPath
+//
+
+import SwiftPath
+import Testing
+
+@Suite
+struct Path_FormatStyle_Tests {
+    /// Test ad-hoc path formatting using a `PathComponents` format style directly on a `Path` type.
+    @Test
+    func formatted_PathComponents() {
+        let path = PathA(pathComponents: ["foo", "bar"])
+
+        #expect(
+            path.formatted(.pathComponents) // default formatter config
+                == "/foo/bar"
+        )
+        #expect(
+            path.formatted(.pathComponents.root(.relative))
+                == "foo/bar"
+        )
+        #expect(
+            path.formatted(.pathComponents.root(.absolute).rootSeparator(">").pathSeparator("."))
+                == ">foo.bar"
+        )
+    }
+}
+
+// MARK: - Test Types
+
+private struct PathA: Path, Equatable {
+    let pathComponents: PathComponents
+}
+
+private struct PathB: Path, Equatable {
+    let pathComponents: PathComponents
+}
