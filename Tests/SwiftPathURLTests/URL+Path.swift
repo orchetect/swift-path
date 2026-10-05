@@ -12,6 +12,7 @@ import SwiftPath
 
 extension URL: Path { }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension URL: PathComponentsParseablePath {
     public static let pathComponentsParseStrategy = URL.PathComponentsParseStrategy(
         scheme: "path",
@@ -19,14 +20,17 @@ extension URL: PathComponentsParseablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension URL: PathComponentsFormattablePath {
     public static let pathComponentsFormatStyle = URL.PathComponentsFormatStyle()
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension URL: StringParseablePath {
     public static let pathStringParseStrategy = PathComponents.ParseStrategy()
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension URL: StringFormattablePath {
     public static let pathStringFormatStyle = PathComponents.FormatStyle()
 }
