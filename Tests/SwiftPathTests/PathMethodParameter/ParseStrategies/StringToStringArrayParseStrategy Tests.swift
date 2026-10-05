@@ -12,6 +12,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToStringArrayParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -19,6 +20,7 @@ struct StringToStringArrayParseStrategy_Tests {
         #expect(type(of: param).Value.self == [String].self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultSeparator() throws {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -31,6 +33,7 @@ struct StringToStringArrayParseStrategy_Tests {
         #expect(try param.parse(",foo,bar,", strategy: .stringArray()) == ["", "foo", "bar", ""])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_customSeparator() throws {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -43,6 +46,7 @@ struct StringToStringArrayParseStrategy_Tests {
         #expect(try param.parse("|foo|bar|", strategy: .stringArray(separator: "|")) == ["", "foo", "bar", ""])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func separatorComposition_defaultSeparator() throws {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -55,6 +59,7 @@ struct StringToStringArrayParseStrategy_Tests {
         #expect(try param.parse(",foo,bar,", strategy: .stringArray) == ["", "foo", "bar", ""])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func separatorComposition_customSeparator() throws {
         let param = AnyPathMethodParameter<[String]>(label: "test")

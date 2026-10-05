@@ -18,6 +18,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToBoolParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool() throws {
         let param = AnyPathMethodParameter.bool(label: "test")
@@ -27,24 +28,28 @@ struct StringToBoolParseStrategy_Tests {
         #expect(try param.parse("false", strategy: .bool) == false)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_options() {
         #expect(StringToBoolParseStrategy(options: []).options == [])
         #expect(StringToBoolParseStrategy(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructors() {
         #expect(StringToBoolParseStrategy.bool(options: []).options == [])
         #expect(StringToBoolParseStrategy.bool(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func optionsComposition() {
         #expect(StringToBoolParseStrategy.bool.options([]).options == [])
         #expect(StringToBoolParseStrategy.bool.options([.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_noOptions() throws {
         let param = AnyPathMethodParameter.bool(label: "test")
@@ -100,6 +105,7 @@ struct StringToBoolParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_caseInsensitive() throws {
         let param = AnyPathMethodParameter.bool(label: "test")
@@ -151,6 +157,7 @@ struct StringToBoolParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_allowOutOfBoundsNumbers() throws {
         let param = AnyPathMethodParameter.bool(label: "test")
@@ -198,6 +205,7 @@ struct StringToBoolParseStrategy_Tests {
         #expect(try param.parse("-1.5", strategy: .bool(options: options)) == false)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool_caseInsensitive_allowOutOfBoundsNumbers() throws {
         let param = AnyPathMethodParameter.bool(label: "test")

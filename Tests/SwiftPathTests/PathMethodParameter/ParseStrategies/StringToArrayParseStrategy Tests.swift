@@ -12,6 +12,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToArrayParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -19,6 +20,7 @@ struct StringToArrayParseStrategy_Tests {
         #expect(type(of: param).Value.self == [Int].self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultSeparator() throws {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -44,6 +46,7 @@ struct StringToArrayParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_customSeparator() throws {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -69,6 +72,7 @@ struct StringToArrayParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_defaultSeparator() throws {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -79,6 +83,7 @@ struct StringToArrayParseStrategy_Tests {
         #expect(try param.parse("3,1,2", strategy: [Int].stringParseStrategy(transform: .int)) == [3, 1, 2])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_customSeparator() throws {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -89,6 +94,7 @@ struct StringToArrayParseStrategy_Tests {
         #expect(try param.parse("3|1|2", strategy: [Int].stringParseStrategy(separator: "|", transform: .int)) == [3, 1, 2])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func separatorComposition() throws {
         let param = AnyPathMethodParameter<[Int]>(label: "test")

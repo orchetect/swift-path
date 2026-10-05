@@ -12,6 +12,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToStringSetParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -19,6 +20,7 @@ struct StringToStringSetParseStrategy_Tests {
         #expect(type(of: param).Value.self == Set<String>.self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultSeparator() throws {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -32,6 +34,7 @@ struct StringToStringSetParseStrategy_Tests {
         #expect(try param.parse(",foo,bar,", strategy: .stringSet()) == ["", "foo", "bar"]) // "" is de-duped
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_customSeparator() throws {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -45,6 +48,7 @@ struct StringToStringSetParseStrategy_Tests {
         #expect(try param.parse("|foo|bar|", strategy: .stringSet(separator: "|")) == ["", "foo", "bar"]) // "" is de-duped
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_separator_defaultSeparator() throws {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -58,6 +62,7 @@ struct StringToStringSetParseStrategy_Tests {
         #expect(try param.parse(",foo,bar,", strategy: .stringSet) == ["", "foo", "bar"]) // "" is de-duped
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_separator_customSeparator() throws {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")

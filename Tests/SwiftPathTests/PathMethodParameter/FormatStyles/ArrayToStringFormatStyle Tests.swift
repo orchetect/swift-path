@@ -24,6 +24,7 @@ struct ArrayToStringFormatStyle_Tests {
         #expect(type(of: param).Value.self == [Int].self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultSeparator() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -36,6 +37,7 @@ struct ArrayToStringFormatStyle_Tests {
         #expect(param.format([3, 1, 2], format: format) == "3,1,2")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_customSeparator() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -48,6 +50,7 @@ struct ArrayToStringFormatStyle_Tests {
         #expect(param.format([3, 1, 2], format: format) == "3|1|2")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_defaultSeparator() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -57,6 +60,7 @@ struct ArrayToStringFormatStyle_Tests {
         #expect(param.format([3, 1, 2], format: [Int].stringFormatStyle(transform: .string)) == "3,1,2")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_customSeparator() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")
@@ -66,6 +70,7 @@ struct ArrayToStringFormatStyle_Tests {
         #expect(param.format([3, 1, 2], format: [Int].stringFormatStyle(separator: "|", transform: .string)) == "3|1|2")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func separatorComposition() {
         let param = AnyPathMethodParameter<[Int]>(label: "test")

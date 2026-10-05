@@ -13,6 +13,7 @@ import Testing
 /// - Basic string formatting results
 @Suite
 struct StringSetToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -20,6 +21,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(type(of: param).Value.self == Set<String>.self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -34,6 +36,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b" || c == "b,a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_customSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -48,6 +51,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -60,6 +64,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b" || c == "b,a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor_customSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -72,6 +77,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -84,6 +90,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a,b,c")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func staticConstructor_customSeparator_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -96,6 +103,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b|c")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_separator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
@@ -108,6 +116,7 @@ struct StringSetToStringFormatStyle_Tests {
         #expect(c == "a|b" || c == "b|a")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test // TODO: might need to enable test only if locale language is English
     func composition_separator_sortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")

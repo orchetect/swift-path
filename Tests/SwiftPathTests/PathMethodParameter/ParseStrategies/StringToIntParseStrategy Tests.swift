@@ -16,6 +16,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToIntParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int() throws {
         let param = AnyPathMethodParameter.int(label: "test")
@@ -33,24 +34,28 @@ struct StringToIntParseStrategy_Tests {
 
     // (Since this initializer is shared for all associated integer types, we don't need to repeat this
     // test for every integer type in this test suite.)
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_init_encoding() {
         #expect(StringToIntParseStrategy<Int>(options: []).options == [])
         #expect(StringToIntParseStrategy<Int>(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_staticConstructors() {
         #expect(StringToIntParseStrategy.int(options: []).options == [])
         #expect(StringToIntParseStrategy.int(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_encodingComposition() {
         #expect(StringToIntParseStrategy.int.options([]).options == [])
         #expect(StringToIntParseStrategy.int.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8() throws {
         let param = AnyPathMethodParameter.int8(label: "test")
@@ -66,18 +71,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8_staticConstructors() {
         #expect(StringToIntParseStrategy.int8(options: []).options == [])
         #expect(StringToIntParseStrategy.int8(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8_encodingComposition() {
         #expect(StringToIntParseStrategy.int8.options([]).options == [])
         #expect(StringToIntParseStrategy.int8.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16() throws {
         let param = AnyPathMethodParameter.int16(label: "test")
@@ -93,18 +101,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16_staticConstructors() {
         #expect(StringToIntParseStrategy.int16(options: []).options == [])
         #expect(StringToIntParseStrategy.int16(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16_encodingComposition() {
         #expect(StringToIntParseStrategy.int16.options([]).options == [])
         #expect(StringToIntParseStrategy.int16.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32() throws {
         let param = AnyPathMethodParameter.int32(label: "test")
@@ -120,18 +131,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32_staticConstructors() {
         #expect(StringToIntParseStrategy.int32(options: []).options == [])
         #expect(StringToIntParseStrategy.int32(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32_encodingComposition() {
         #expect(StringToIntParseStrategy.int32.options([]).options == [])
         #expect(StringToIntParseStrategy.int32.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64() throws {
         let param = AnyPathMethodParameter.int64(label: "test")
@@ -147,18 +161,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64_staticConstructors() {
         #expect(StringToIntParseStrategy.int64(options: []).options == [])
         #expect(StringToIntParseStrategy.int64(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64_encodingComposition() {
         #expect(StringToIntParseStrategy.int64.options([]).options == [])
         #expect(StringToIntParseStrategy.int64.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt() throws {
         let param = AnyPathMethodParameter.uInt(label: "test")
@@ -174,18 +191,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8() throws {
         let param = AnyPathMethodParameter.uInt8(label: "test")
@@ -201,18 +221,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt8(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt8(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt8.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt8.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16() throws {
         let param = AnyPathMethodParameter.uInt16(label: "test")
@@ -228,18 +251,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt16(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt16(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt16.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt16.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32() throws {
         let param = AnyPathMethodParameter.uInt32(label: "test")
@@ -255,18 +281,21 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt32(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt32(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt32.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt32.options([.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64() throws {
         let param = AnyPathMethodParameter.uInt64(label: "test")
@@ -282,12 +311,14 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt64(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt64(options: [.allowBool]).options == [.allowBool])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt64.options([]).options == [])
@@ -296,6 +327,7 @@ struct StringToIntParseStrategy_Tests {
 
     // MARK: - `ParseOption`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_noOptions() throws {
         let param = AnyPathMethodParameter.int(label: "test")
@@ -348,6 +380,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowNonWholeFloats() throws {
         let param = AnyPathMethodParameter.int(label: "test")
@@ -392,6 +425,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowBool() throws {
         let param = AnyPathMethodParameter.int(label: "test")
@@ -444,6 +478,7 @@ struct StringToIntParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int_allowNonWholeFloats_allowBool() throws {
         let param = AnyPathMethodParameter.int(label: "test")

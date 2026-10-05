@@ -14,6 +14,7 @@ import Testing
 /// more complex use cases (needs additional properties stored or its `Value` type further constrained).
 @Suite
 struct PathParameter_Derivative_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_label_description() throws {
         let param = MyParam<Int>(label: "test", description: "Test")
@@ -47,6 +48,7 @@ struct PathParameter_Derivative_Tests {
         // can't use `format()` or `parse()` on an `any` protocol because they have associated generics
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func protocolConstrainedFormatMethodParameter() {
         func format<P: MyParamPathParameter>(value: Int, using param: P) -> String where P.Value == Int {
@@ -56,6 +58,7 @@ struct PathParameter_Derivative_Tests {
         #expect(format(value: 123, using: .int(label: "test", description: "Test")) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func protocolConstrainedParseMethodParameter() throws {
         func parse<P: MyParamPathParameter>(string: String, using param: P) throws -> Int where P.Value == Int {

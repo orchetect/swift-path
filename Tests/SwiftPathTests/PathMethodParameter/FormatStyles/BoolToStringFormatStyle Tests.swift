@@ -16,6 +16,7 @@ import Testing
 /// - Basic string formatting results
 @Suite
 struct BoolToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func bool() {
         let param = AnyPathMethodParameter.bool(label: "test")

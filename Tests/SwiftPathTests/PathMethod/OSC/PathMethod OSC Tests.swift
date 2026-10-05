@@ -17,6 +17,7 @@ import Testing
 @Suite
 struct PathMethod_OSC_Tests {
     /// Test that OSC address patterns using wildcard(s) match the appropriate paths.
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathsMatching_nonAsync() /* NOT ASYNC */ {
         #expect(MyPath.paths(matching: "") == [])
@@ -34,6 +35,7 @@ struct PathMethod_OSC_Tests {
     }
 
     /// Test that OSC address patterns using wildcard(s) match the appropriate paths.
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathsMatching_async() async {
         #expect(await MyPath.paths(matching: "") == [])
@@ -50,6 +52,7 @@ struct PathMethod_OSC_Tests {
         #expect(await MyPath.paths(matching: "/???") == [.foo, .bar])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: ["/foo", "/?oo", "/f??", "/f*"])
     func init_methodsForOSCMessage_nonAsync(oscAddress: String) /* NOT ASYNC */ {
         let msg = OSCMessage(oscAddress, values: [123, "Test"])
@@ -66,6 +69,7 @@ struct PathMethod_OSC_Tests {
         #expect(foo.string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: ["/foo", "/?oo", "/f??", "/f*"])
     func init_methodsForOSCMessage_async(oscAddress: String) async {
         let msg = OSCMessage(oscAddress, values: [123, "Test"])
@@ -82,6 +86,7 @@ struct PathMethod_OSC_Tests {
         #expect(foo.string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_methodsForOSCMessage_invalidValuesA() {
         // will match both `foo` and `bar` paths, but the values are invalid for both
@@ -94,6 +99,7 @@ struct PathMethod_OSC_Tests {
         #expect(errorCount == 2)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_methodsForOSCMessage_invalidValuesB() {
         // values are valid for `foo` path, but not for the `bar` path
@@ -106,6 +112,7 @@ struct PathMethod_OSC_Tests {
         #expect(errorCount == 1) // invalid values for `bar`
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func oscMessage() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
@@ -114,6 +121,7 @@ struct PathMethod_OSC_Tests {
         #expect(msg.values == [123, "Test"])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func oscValues() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
@@ -121,16 +129,19 @@ struct PathMethod_OSC_Tests {
         #expect(values == [123, "Test"])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func OSCPath_typealias() {
         let _: any OSCPath = MyPath.bar
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func OSCPathMethod_typealias() {
         let _: any OSCPathMethod = MyMethod.foo(FooValues(int: 123, string: "Test"))
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func OSCPathMethodParameterValues_typealias() {
         let _: any OSCPathMethodParameterValues = FooValues(int: 123, string: "Test")
@@ -201,6 +212,7 @@ extension MyMethod: PathMethod {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: OSCMessageFormattablePathMethod {
     var formattableOSCValues: any OSCValuesFormattablePathMethodParameterValues {
         switch self {
@@ -224,11 +236,11 @@ private struct FooValues: Equatable {
 
 // MARK: - Test Types - `FooValues` - `OSCValues`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FooValues: OSCValuesParseablePathMethodParameterValues {
     static let oscValuesParseStrategy = OSCValuesParseStrategy()
 
     /// Ordered OSC message values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct OSCValuesParseStrategy: ParseStrategy {
         func parse(_ value: OSCValues) throws -> FooValues {
             let (int, string) = try value.masked(Int.self, String.self)
@@ -239,11 +251,11 @@ extension FooValues: OSCValuesParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FooValues: OSCValuesFormattablePathMethodParameterValues {
     static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
     /// Ordered OSC message values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct OSCValuesFormatStyle: FormatStyle {
         func format(_ value: FooValues) -> OSCValues {
             [value.int, value.string]
@@ -263,11 +275,11 @@ private struct BarValues: Equatable {
 
 // MARK: - Test Types - `BarValues` - `OSCValues`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension BarValues: OSCValuesParseablePathMethodParameterValues {
     static let oscValuesParseStrategy = OSCValuesParseStrategy()
 
     /// Ordered OSC message values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct OSCValuesParseStrategy: ParseStrategy {
         func parse(_ value: OSCValues) throws -> BarValues {
             let bool = try value.masked(Bool.self)
@@ -278,11 +290,11 @@ extension BarValues: OSCValuesParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension BarValues: OSCValuesFormattablePathMethodParameterValues {
     static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
     /// Ordered OSC message values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct OSCValuesFormatStyle: FormatStyle {
         func format(_ value: BarValues) -> OSCValues {
             [value.bool]

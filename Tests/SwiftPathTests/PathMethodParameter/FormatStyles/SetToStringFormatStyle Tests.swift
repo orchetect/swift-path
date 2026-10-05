@@ -17,6 +17,7 @@ import Testing
 /// override on `PathMethodParameter`, as there is no way to express the constraints.
 @Suite
 struct SetToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
@@ -24,6 +25,7 @@ struct SetToStringFormatStyle_Tests {
         #expect(type(of: param).Value.self == Set<Int>.self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
@@ -38,6 +40,7 @@ struct SetToStringFormatStyle_Tests {
         #expect(a == "1,2" || a == "2,1")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteType_customSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
@@ -52,6 +55,7 @@ struct SetToStringFormatStyle_Tests {
         #expect(a == "1|2" || a == "2|1")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
@@ -64,6 +68,7 @@ struct SetToStringFormatStyle_Tests {
         #expect(a == "1,2" || a == "2,1")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func concreteStatic_customSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
@@ -76,6 +81,7 @@ struct SetToStringFormatStyle_Tests {
         #expect(a == "1|2" || a == "2|1")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition_separator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")

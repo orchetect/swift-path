@@ -20,6 +20,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToDataParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func data() {
         let param = AnyPathMethodParameter.data(label: "test")
@@ -27,21 +28,25 @@ struct StringToDataParseStrategy_Tests {
         #expect(type(of: param).Value.self == Data.self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_encoding() {
         #expect(StringToDataParseStrategy(encoding: .base64).encoding == .base64)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructors() {
         #expect(StringToDataParseStrategy.data(encoding: .base64).encoding == .base64)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func encodingComposition() {
         #expect(StringToDataParseStrategy.data.encoding(.base64).encoding == .base64)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func defaultEncoding() throws {
         // default uses Base64
@@ -55,6 +60,7 @@ struct StringToDataParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: StringToDataParseStrategy.Encoding.allCases)
     func allEncodings(encoding: StringToDataParseStrategy.Encoding) throws {
         // use a switch case on allCases for compiler enforcement of testing all encodings

@@ -10,6 +10,7 @@ import Testing
 /// This suite tests implementing a custom type conforming to `PathMethod`.
 @Suite
 struct PathMethod_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func path_pathString() {
         #expect(MyMethod().path.pathString == "/foo/bar")
@@ -19,6 +20,7 @@ struct PathMethod_Tests {
 
 // MARK: - Test Types - `MyMethod`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 private struct MyMethod {
     let path: AnyPath = .init(pathComponents: PathComponents(["foo", "bar"]))
 
@@ -27,6 +29,7 @@ private struct MyMethod {
     init() { }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: PathMethod {
     struct Values: PathMethodParameterValues {
         let int: Int

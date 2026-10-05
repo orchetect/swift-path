@@ -9,6 +9,7 @@ import Testing
 
 @Suite
 struct AnyPathParameters_Tests {
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func initA() {
         let params = AnyPathMethodParameters(parameters: (
@@ -19,6 +20,7 @@ struct AnyPathParameters_Tests {
         #expect(params.parameters.1.label == "string")
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func initB() {
         let tuple = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
@@ -27,6 +29,7 @@ struct AnyPathParameters_Tests {
         #expect(params.parameters.1.label == "string")
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func initC() {
         typealias TupleType = (AnyPathMethodParameter<Int>, AnyPathMethodParameter<String>)
@@ -44,6 +47,7 @@ struct AnyPathParameters_Tests {
         #expect(params.parameters.1.label == "string")
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func initD() {
         typealias MyParameters = AnyPathMethodParameters<AnyPathMethodParameter<Int>, AnyPathMethodParameter<String>>
@@ -64,6 +68,7 @@ struct AnyPathParameters_Tests {
         #expect(params.parameters.1.label == "string")
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func staticConstructor() {
         let params: AnyPathMethodParameters = .testParams
@@ -71,6 +76,7 @@ struct AnyPathParameters_Tests {
         #expect(params.parameters.1.label == "string")
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func anyParameters() {
         let params = AnyPathMethodParameters(parameters: (
@@ -83,6 +89,7 @@ struct AnyPathParameters_Tests {
         #expect(labels == ["int", "string"])
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func cast() throws {
         let params = AnyPathMethodParameters(parameters: (
@@ -109,6 +116,7 @@ struct AnyPathParameters_Tests {
         }
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func castOptional() throws {
         let params = AnyPathMethodParameters(parameters: (
@@ -134,6 +142,7 @@ struct AnyPathParameters_Tests {
 
 // MARK: - Test Types
 
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
 extension AnyPathMethodParameters {
     fileprivate static var testParams: AnyPathMethodParameters<AnyPathMethodParameter<Int>, AnyPathMethodParameter<String>> {
         .init(parameters: (.int(label: "int"), .string(label: "string")))

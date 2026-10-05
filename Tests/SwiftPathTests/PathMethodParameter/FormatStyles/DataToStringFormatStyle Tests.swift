@@ -20,6 +20,7 @@ import Testing
 /// - Basic string formatting results
 @Suite
 struct DataToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func data() {
         let param = AnyPathMethodParameter.data(label: "test")
@@ -27,6 +28,7 @@ struct DataToStringFormatStyle_Tests {
         #expect(type(of: param).Value.self == Data.self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
     func encodingComposition(encoding: DataToStringFormatStyle.Encoding) {
         switch encoding {
@@ -38,6 +40,7 @@ struct DataToStringFormatStyle_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func defaultEncoding() {
         // default uses Base64
@@ -47,6 +50,7 @@ struct DataToStringFormatStyle_Tests {
         #expect(formatter.format(Data([0x01, 0x02])) == "AQI=")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
     func allEncodings(encoding: DataToStringFormatStyle.Encoding) {
         // use a switch case on allCases for compiler enforcement of testing all encodings

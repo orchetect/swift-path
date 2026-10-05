@@ -13,6 +13,7 @@ import Testing
 /// - Basic string formatting results
 @Suite
 struct StringArrayToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -20,6 +21,7 @@ struct StringArrayToStringFormatStyle_Tests {
         #expect(type(of: param).Value.self == [String].self)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func staticConstructor() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
@@ -33,6 +35,7 @@ struct StringArrayToStringFormatStyle_Tests {
         #expect(param.format(["foo", "bar"], format: .string(separator: "|")) == "foo|bar")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func separatorComposition() {
         let param = AnyPathMethodParameter<[String]>(label: "test")

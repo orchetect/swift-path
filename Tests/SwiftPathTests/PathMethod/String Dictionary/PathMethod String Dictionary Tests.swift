@@ -12,6 +12,7 @@ import Testing
 /// `String` dictionary.
 @Suite
 struct PathMethod_String_Dictionary_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_method_stringDictionary() throws {
         let path: MyPath = .foo
@@ -24,6 +25,7 @@ struct PathMethod_String_Dictionary_Tests {
         #expect(foo.string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_method_stringDictionary_invalidValues() throws {
         // no parameters
@@ -44,6 +46,7 @@ struct PathMethod_String_Dictionary_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func stringDictionary() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
@@ -51,16 +54,19 @@ struct PathMethod_String_Dictionary_Tests {
         #expect(stringDictionary == ["int": "123", "string": "Test"])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func StringDictionaryPath_typealias() {
         let _: any StringDictionaryPath = MyPath.bar
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func StringDictionaryPathMethod_typealias() {
         let _: any StringDictionaryPathMethod = MyMethod.foo(FooValues(int: 123, string: "Test"))
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func StringDictionaryPathMethodParameterValues_typealias() {
         let _: any StringDictionaryPathMethodParameterValues = FooValues(int: 123, string: "Test")
@@ -123,6 +129,7 @@ extension MyMethod: PathMethod {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: StringDictionaryFormattablePathMethod {
     var formattableStringDictionary: any StringDictionaryFormattablePathMethodParameterValues {
         switch self {
@@ -150,10 +157,10 @@ extension FooValues {
 
 // MARK: - Test Types - `FooValues` - `StringDictionary`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FooValues: StringDictionaryParseablePathMethodParameterValues {
     static let stringDictionaryParseStrategy = StringDictionaryParseStrategy()
 
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct StringDictionaryParseStrategy: ParseStrategy {
         func parse(_ value: [String: String]) throws -> FooValues {
             guard let intString = value["int"],
@@ -169,6 +176,7 @@ extension FooValues: StringDictionaryParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FooValues: StringDictionaryFormattablePathMethodParameterValues {
     static let stringDictionaryFormatStyle = StringDictionaryFormatStyle()
 
@@ -199,6 +207,7 @@ extension BarValues {
 
 // MARK: - Test Types - `BarValues` - `StringDictionary`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension BarValues: StringDictionaryParseablePathMethodParameterValues {
     static let stringDictionaryParseStrategy = StringDictionaryParseStrategy()
 
@@ -216,6 +225,7 @@ extension BarValues: StringDictionaryParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension BarValues: StringDictionaryFormattablePathMethodParameterValues {
     static let stringDictionaryFormatStyle = StringDictionaryFormatStyle()
 

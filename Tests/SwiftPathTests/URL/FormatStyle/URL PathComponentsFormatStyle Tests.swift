@@ -10,6 +10,7 @@ import Testing
 
 @Suite
 struct URL_PathComponentsFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition() {
         let style: URL.PathComponentsFormatStyle = .pathComponents
@@ -91,6 +92,7 @@ struct URL_PathComponentsFormatStyle_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func format_edgeCases() throws {
         // format style ignores all URL components (including scheme and hostname)

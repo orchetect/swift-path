@@ -10,12 +10,14 @@ import Testing
 
 @Suite
 struct PathMethodParameterValues_Empty_String_Dictionary_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_stringDictionary_A() throws {
         let method = try MyMethod(stringDictionary: [:])
         #expect(method.value == 0)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_stringDictionary_B() throws {
         #expect(throws: (any Error).self) {
@@ -23,6 +25,7 @@ struct PathMethodParameterValues_Empty_String_Dictionary_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func stringDictionary() {
         #expect(MyMethod().stringDictionary.isEmpty)
@@ -48,6 +51,8 @@ private struct MyMethod {
 
 // MARK: - Test Types - MyMethod - `[String: String]`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: EmptyStringDictionaryParseablePathMethodParameterValues { }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: EmptyStringDictionaryFormattablePathMethodParameterValues { }

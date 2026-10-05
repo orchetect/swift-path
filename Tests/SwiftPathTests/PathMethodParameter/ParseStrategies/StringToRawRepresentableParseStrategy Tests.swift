@@ -13,6 +13,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToRawRepresentableParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func baseline() {
         let param = AnyPathMethodParameter<MyEnum>(label: "test")
@@ -21,6 +22,7 @@ struct StringToRawRepresentableParseStrategy_Tests {
     }
 
     /// Tests using the `<TYPE>.rawValueParseStrategy` static constructor
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func rawRepresentableExtension() throws {
         let param = AnyPathMethodParameter<MyEnum>(label: "test")

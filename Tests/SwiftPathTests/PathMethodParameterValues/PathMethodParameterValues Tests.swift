@@ -13,6 +13,7 @@ import Testing
 /// It tests the use of the `cast(values:required:optional:)` global method as well.
 @Suite
 struct PathMethodParameterValues_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseAnyArray_A() throws {
         let method = try MyMethod([123, "Test"], strategy: .anyArray)
@@ -21,6 +22,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == nil)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseAnyArray_B() throws {
         #expect(throws: (any Error).self) {
@@ -28,6 +30,7 @@ struct PathMethodParameterValues_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseAnyArray_C() throws {
         let method = try MyMethod([123, "Test", true], strategy: .anyArray)
@@ -36,6 +39,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == true)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatAnyArray_A() throws {
         let array = MyMethod(int: 123, string: "Test", bool: nil).formatted(.anyArray)
@@ -47,6 +51,7 @@ struct PathMethodParameterValues_Tests {
         #expect(string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatAnyArray_B() throws {
         let array = MyMethod(int: 123, string: "Test", bool: true).formatted(.anyArray)
@@ -60,6 +65,7 @@ struct PathMethodParameterValues_Tests {
         #expect(bool == true)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseDictionary_A() throws {
         let method = try MyMethod(["int": 123, "string": "Test"], strategy: .anyDictionary)
@@ -68,6 +74,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == nil)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseDictionary_B() throws {
         let method = try MyMethod(["int": 123, "string": "Test", "bool": true], strategy: .anyDictionary)
@@ -76,6 +83,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == true)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatDictionary_A() throws {
         let dict = MyMethod(int: 123, string: "Test", bool: nil).formatted(.anyDictionary)
@@ -87,6 +95,7 @@ struct PathMethodParameterValues_Tests {
         #expect(string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatDictionary_B() throws {
         let dict = MyMethod(int: 123, string: "Test", bool: true).formatted(.anyDictionary)
@@ -115,6 +124,7 @@ private struct MyMethod {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: PathMethodParameterValues, ParseablePathMethodParameterValues, FormattablePathMethodParameterValues {
     static let requiredPathParameters = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
     static let optionalPathParameters = AnyPathMethodParameter.bool(label: "bool")
@@ -122,9 +132,9 @@ extension MyMethod: PathMethodParameterValues, ParseablePathMethodParameterValue
 
 // MARK: - Test Types - MyMethod - `[Any]`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod {
     /// Ordered `Any` values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct AnyArrayParseStrategy: ParseStrategy {
         @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *) // requirement for `cast(...)`
         func parse(_ value: [Any]) throws -> MyMethod {
@@ -152,9 +162,9 @@ extension ParseStrategy where Self == MyMethod.AnyArrayParseStrategy {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod {
     /// Ordered `Any` values array.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct AnyArrayFormatStyle: FormatStyle {
         func format(_ value: MyMethod) -> [Any] {
             var values: [Any] = [value.int, value.string]

@@ -16,6 +16,7 @@ import Testing
 /// - Basic string formatting results
 @Suite
 struct IntToStringFormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int() {
         let param = AnyPathMethodParameter.int(label: "test")
@@ -24,6 +25,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as Int, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int8() {
         let param = AnyPathMethodParameter.int8(label: "test")
@@ -32,6 +34,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as Int8, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int16() {
         let param = AnyPathMethodParameter.int16(label: "test")
@@ -40,6 +43,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as Int16, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int32() {
         let param = AnyPathMethodParameter.int32(label: "test")
@@ -48,6 +52,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as Int32, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func int64() {
         let param = AnyPathMethodParameter.int64(label: "test")
@@ -56,6 +61,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as Int64, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt() {
         let param = AnyPathMethodParameter.uInt(label: "test")
@@ -64,6 +70,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as UInt, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt8() {
         let param = AnyPathMethodParameter.uInt8(label: "test")
@@ -72,6 +79,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as UInt8, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt16() {
         let param = AnyPathMethodParameter.uInt16(label: "test")
@@ -80,6 +88,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as UInt16, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt32() {
         let param = AnyPathMethodParameter.uInt32(label: "test")
@@ -88,6 +97,7 @@ struct IntToStringFormatStyle_Tests {
         #expect(param.format(123 as UInt32, format: .string) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func uInt64() {
         let param = AnyPathMethodParameter.uInt64(label: "test")

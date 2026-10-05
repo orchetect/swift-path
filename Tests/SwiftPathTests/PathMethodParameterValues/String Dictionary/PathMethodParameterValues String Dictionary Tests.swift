@@ -10,6 +10,7 @@ import Testing
 
 @Suite
 struct PathMethodParameterValues_String_Dictionary_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseDictionary_A() throws {
         let method = try MyMethod(stringDictionary: ["int": "123", "string": "Test"])
@@ -18,6 +19,7 @@ struct PathMethodParameterValues_String_Dictionary_Tests {
         #expect(method.bool == nil)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseDictionary_B() throws {
         let method = try MyMethod(stringDictionary: ["int": "123", "string": "Test", "bool": "true"])
@@ -26,6 +28,7 @@ struct PathMethodParameterValues_String_Dictionary_Tests {
         #expect(method.bool == true)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatDictionary_A() throws {
         let dict = MyMethod(int: 123, string: "Test", bool: nil).stringDictionary
@@ -37,6 +40,7 @@ struct PathMethodParameterValues_String_Dictionary_Tests {
         #expect(string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatDictionary_B() throws {
         let dict = MyMethod(int: 123, string: "Test", bool: true).stringDictionary
@@ -65,6 +69,7 @@ private struct MyMethod {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: PathMethodParameterValues /* , ParseablePathMethodParameterValues, FormattablePathMethodParameterValues */ {
     static let requiredPathParameters = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
     static let optionalPathParameters = AnyPathMethodParameter.bool(label: "bool")
@@ -72,12 +77,12 @@ extension MyMethod: PathMethodParameterValues /* , ParseablePathMethodParameterV
 
 // MARK: - Test Types - MyMethod - `[String: String]`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: StringDictionaryParseablePathMethodParameterValues {
     static let stringDictionaryParseStrategy = StringDictionaryParseStrategy()
 
     /// String dictionary, which could typically be used with URL query key/value pairs
     /// or CLI command line arguments.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct StringDictionaryParseStrategy: ParseStrategy {
         func parse(_ value: [String: String]) throws -> MyMethod {
             // note that this logic currently does not throw an error if extra unexpected dictionary entries exist
@@ -102,12 +107,12 @@ extension MyMethod: StringDictionaryParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: StringDictionaryFormattablePathMethodParameterValues {
     static let stringDictionaryFormatStyle = StringDictionaryFormatStyle()
 
     /// String dictionary, which could typically be used with URL query key/value pairs
     /// or CLI command line arguments.
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct StringDictionaryFormatStyle: FormatStyle {
         func format(_ value: MyMethod) -> [String: String] {
             let int = MyMethod.requiredPathParameters.0.format(value.int, format: .string)

@@ -16,6 +16,7 @@ import Testing
 /// - String parsing results
 @Suite
 struct StringToFloatParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func double() throws {
         let param = AnyPathMethodParameter.double(label: "test")
@@ -32,6 +33,7 @@ struct StringToFloatParseStrategy_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func float() throws {
         let param = AnyPathMethodParameter.float(label: "test")

@@ -10,6 +10,7 @@ import Testing
 
 @Suite
 struct URL_PathComponentsParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition() {
         let style: URL.PathComponentsParseStrategy = .pathComponents
@@ -79,6 +80,7 @@ struct URL_PathComponentsParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parse_edgeCases() throws {
         let parser = URL.PathComponentsParseStrategy(scheme: "path", host: "myhost")

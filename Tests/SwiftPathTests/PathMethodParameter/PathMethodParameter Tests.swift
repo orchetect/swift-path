@@ -18,6 +18,7 @@ struct PathParameter_Tests {
         // can't use `format()` or `parse()` on an `any` protocol because they have associated generics
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func protocolConstrainedFormatMethodParameter() {
         func format<P: PathMethodParameter>(value: Int, using param: P) -> String where P.Value == Int {
@@ -27,6 +28,7 @@ struct PathParameter_Tests {
         #expect(format(value: 123, using: .int(label: "test")) == "123")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func protocolConstrainedParseMethodParameter() throws {
         func parse<P: PathMethodParameter>(string: String, using param: P) throws -> Int where P.Value == Int {
@@ -36,11 +38,13 @@ struct PathParameter_Tests {
         #expect(try parse(string: "123", using: .int(label: "test")) == 123)
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func cast_empty() throws {
         #expect(try SwiftPath.cast(values: [], required: (), optional: ()) == ())
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func cast_requiredOnly() throws {
         let req = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
@@ -67,6 +71,7 @@ struct PathParameter_Tests {
         }
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func cast_optionalOnly() throws {
         let opt = (AnyPathMethodParameter.bool(label: "bool"), AnyPathMethodParameter.string(label: "string"))
@@ -104,6 +109,7 @@ struct PathParameter_Tests {
         }
     }
 
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func cast_requiredAndOptional() throws {
         let req = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
