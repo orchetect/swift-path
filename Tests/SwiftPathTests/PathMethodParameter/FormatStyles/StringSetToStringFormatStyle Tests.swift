@@ -1,11 +1,12 @@
 //
 //  StringSetToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `StringSetToStringFormatStyle` static constructor
@@ -13,14 +14,14 @@ import SwiftPath
 @Suite
 struct StringSetToStringFormatStyle_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Set<String>.self)
     }
 
     @Test
-    func concreteType_defaultSeparator() throws {
+    func concreteType_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let format = StringSetToStringFormatStyle()
@@ -34,7 +35,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test
-    func concreteType_customSeparator() throws {
+    func concreteType_customSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let format = StringSetToStringFormatStyle(separator: "|")
@@ -48,7 +49,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test
-    func staticConstructor_defaultSeparator() throws {
+    func staticConstructor_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let a = param.format(Set(["b"]), format: .string)
@@ -60,7 +61,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test
-    func staticConstructor_customSeparator() throws {
+    func staticConstructor_customSeparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let a = param.format(Set(["b"]), format: .string(separator: "|"))
@@ -72,7 +73,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test // TODO: might need to enable test only if locale language is English
-    func staticConstructor_customSortComparator() throws {
+    func staticConstructor_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let a = param.format(Set(["b"]), format: .string(sortComparator: .localized))
@@ -84,7 +85,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test // TODO: might need to enable test only if locale language is English
-    func staticConstructor_customSeparator_customSortComparator() throws {
+    func staticConstructor_customSeparator_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let a = param.format(Set(["b"]), format: .string(separator: "|", sortComparator: .localized))
@@ -96,7 +97,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test
-    func composition_separator() throws {
+    func composition_separator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let a = param.format(Set(["b"]), format: .string.separator("|"))
@@ -108,7 +109,7 @@ struct StringSetToStringFormatStyle_Tests {
     }
 
     @Test // TODO: might need to enable test only if locale language is English
-    func composition_separator_sortComparator() throws {
+    func composition_separator_sortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
         let string = param.format(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.localized))

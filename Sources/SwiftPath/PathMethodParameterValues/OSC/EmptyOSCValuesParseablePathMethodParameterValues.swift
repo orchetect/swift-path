@@ -1,6 +1,7 @@
 //
 //  EmptyOSCValuesParseablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -29,7 +30,9 @@ extension EmptyOSCValuesParseablePathMethodParameterValues {
 /// A format style that expects an empty OSC values array.
 ///
 /// This is provided as a convenience where a type has no parameters.
-public struct EmptyOSCValuesParseStrategy<ParseOutput>: ParseStrategy, Sendable where ParseOutput: EmptyOSCValuesParseablePathMethodParameterValues {
+public struct EmptyOSCValuesParseStrategy<ParseOutput>: ParseStrategy,
+    Sendable where ParseOutput: EmptyOSCValuesParseablePathMethodParameterValues
+{
     public func parse(_ value: OSCValues) throws -> ParseOutput {
         guard value.isEmpty else {
             throw PathMethodParametersParseError.invalidParameters

@@ -1,15 +1,16 @@
 //
 //  PathRootType Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct PathRootType_Tests {
     @Test
-    func isAbsolute() throws {
+    func isAbsolute() {
         for rootType in PathRootType.allCases {
             switch rootType {
             case .absolute:
@@ -21,7 +22,7 @@ struct PathRootType_Tests {
     }
 
     @Test
-    func init_isAbsolute() throws {
+    func init_isAbsolute() {
         #expect(PathRootType(isAbsolute: true) == .absolute)
         #expect(PathRootType(isAbsolute: false) == .relative)
     }

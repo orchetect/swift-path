@@ -1,22 +1,26 @@
 //
 //  AnyPathMethodParameters Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct AnyPathParameters_Tests {
     @Test
-    func initA() throws {
-        let params = AnyPathMethodParameters(parameters: (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string")))
+    func initA() {
+        let params = AnyPathMethodParameters(parameters: (
+            AnyPathMethodParameter.int(label: "int"),
+            AnyPathMethodParameter.string(label: "string")
+        ))
         #expect(params.parameters.0.label == "int")
         #expect(params.parameters.1.label == "string")
     }
 
     @Test
-    func initB() throws {
+    func initB() {
         let tuple = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
         let params = AnyPathMethodParameters(parameters: tuple)
         #expect(params.parameters.0.label == "int")
@@ -24,7 +28,7 @@ struct AnyPathParameters_Tests {
     }
 
     @Test
-    func initC() throws {
+    func initC() {
         typealias TupleType = (AnyPathMethodParameter<Int>, AnyPathMethodParameter<String>)
         let tuple: TupleType = (.int(label: "int"), .string(label: "string"))
 
@@ -41,9 +45,12 @@ struct AnyPathParameters_Tests {
     }
 
     @Test
-    func initD() throws {
+    func initD() {
         typealias MyParameters = AnyPathMethodParameters<AnyPathMethodParameter<Int>, AnyPathMethodParameter<String>>
-        let tuple /* : MyParameters.Parameters */ = (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string"))
+        let tuple /* : MyParameters.Parameters */ = (
+            AnyPathMethodParameter.int(label: "int"),
+            AnyPathMethodParameter.string(label: "string")
+        )
 
         // doesn't work; Swift can't parse tuple in generic constraint
         // let params: PathParameters<MyParameters.Parameters>
@@ -58,15 +65,18 @@ struct AnyPathParameters_Tests {
     }
 
     @Test
-    func staticConstructor() throws {
+    func staticConstructor() {
         let params: AnyPathMethodParameters = .testParams
         #expect(params.parameters.0.label == "int")
         #expect(params.parameters.1.label == "string")
     }
 
     @Test
-    func anyParameters() throws {
-        let params = AnyPathMethodParameters(parameters: (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string")))
+    func anyParameters() {
+        let params = AnyPathMethodParameters(parameters: (
+            AnyPathMethodParameter.int(label: "int"),
+            AnyPathMethodParameter.string(label: "string")
+        ))
         let labels = params.anyParameters.map(\.label)
         #expect(params.count == 2)
         #expect(params.anyParameters.count == 2)
@@ -75,7 +85,10 @@ struct AnyPathParameters_Tests {
 
     @Test
     func cast() throws {
-        let params = AnyPathMethodParameters(parameters: (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string")))
+        let params = AnyPathMethodParameters(parameters: (
+            AnyPathMethodParameter.int(label: "int"),
+            AnyPathMethodParameter.string(label: "string")
+        ))
 
         #expect(try params.cast(values: [123, "Test"]) == (123, "Test"))
 
@@ -98,7 +111,10 @@ struct AnyPathParameters_Tests {
 
     @Test
     func castOptional() throws {
-        let params = AnyPathMethodParameters(parameters: (AnyPathMethodParameter.int(label: "int"), AnyPathMethodParameter.string(label: "string")))
+        let params = AnyPathMethodParameters(parameters: (
+            AnyPathMethodParameter.int(label: "int"),
+            AnyPathMethodParameter.string(label: "string")
+        ))
 
         #expect(try params.castOptional(values: []) == (nil, nil))
         #expect(try params.castOptional(values: [123]) == (123 as Int?, nil))

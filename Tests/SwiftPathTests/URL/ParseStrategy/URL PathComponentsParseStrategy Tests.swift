@@ -1,16 +1,17 @@
 //
 //  URL PathComponentsParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct URL_PathComponentsParseStrategy_Tests {
     @Test
-    func composition() throws {
+    func composition() {
         let style: URL.PathComponentsParseStrategy = .pathComponents
             .scheme("path")
             .host("hostname")

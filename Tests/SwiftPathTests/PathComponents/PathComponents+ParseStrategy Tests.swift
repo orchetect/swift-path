@@ -1,10 +1,11 @@
 //
 //  PathComponents+ParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct PathComponents_and_ParseStrategy_Tests {
@@ -18,11 +19,11 @@ struct PathComponents_and_ParseStrategy_Tests {
         // root types
         #expect(
             try PathComponents("/foo/bar", strategy: .pathComponents.root(nil))
-            == PathComponents(["foo", "bar"])
+                == PathComponents(["foo", "bar"])
         )
         #expect(
             try PathComponents("foo/bar", strategy: .pathComponents.root(nil))
-            == PathComponents(["foo", "bar"])
+                == PathComponents(["foo", "bar"])
         )
         #expect(
             try PathComponents("/foo/bar", strategy: .pathComponents.root(.absolute))

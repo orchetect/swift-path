@@ -1,6 +1,7 @@
 //
 //  PathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Conforms a type to be parseable from path method parameters and/or able to be formatted as path

@@ -1,11 +1,12 @@
 //
 //  Nested Structs Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite uses a mock `Path` type comprised of nested structs conforming to `PathComponent`
 /// and its sister protocols as needed.
@@ -47,7 +48,7 @@ struct Nested_Structs_PathComponent_Tests {
     }
 
     @Test
-    func pathComponents() throws {
+    func pathComponents() {
         #expect(RootPath.one(.foo(.a)).pathComponents == ["one", "foo", "a"])
         #expect(RootPath.one(.bar).pathComponents == ["one", "bar"])
 
@@ -115,7 +116,7 @@ struct Nested_Structs_PathComponent_Tests {
     // MARK: - `StringFormattablePath` Implementation
 
     @Test
-    func pathString() throws {
+    func pathString() {
         #expect(RootPath.one(.foo(.a)).pathString == ">one.foo.a")
         #expect(RootPath.one(.bar).pathString == ">one.bar")
 

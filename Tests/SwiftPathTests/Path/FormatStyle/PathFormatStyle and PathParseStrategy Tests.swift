@@ -1,11 +1,12 @@
 //
 //  PathFormatStyle and PathParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// - Implements a custom ``Path`` type with as sparse implementation as possible.
 /// - Tests ``PathFormatStyle`` and ``PathParseStrategy`` by creating static constructors for them.
@@ -68,7 +69,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
     }
 
     @Test
-    func formatted_usingStaticConstructor() throws {
+    func formatted_usingStaticConstructor() {
         #expect(
             MyPath(pathComponents: PathComponents([]))
                 .formatted(.path(path: MyPath.FormatStyle(), components: .pathComponents)) == "/"
@@ -80,7 +81,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
     }
 
     @Test
-    func formatted_usingCustomStaticConstructor() throws {
+    func formatted_usingCustomStaticConstructor() {
         #expect(
             MyPath(pathComponents: PathComponents([]))
                 .formatted(.myPath) == "/"
@@ -92,7 +93,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
     }
 
     @Test
-    func formatted_usingInlineConstructor() throws {
+    func formatted_usingInlineConstructor() {
         #expect(
             MyPath(pathComponents: PathComponents([]))
                 .formatted(PathFormatStyle(path: MyPath.FormatStyle(), components: .pathComponents)) == "/"
@@ -115,7 +116,9 @@ private struct MyPath {
 }
 
 extension MyPath: Path {
-    var pathString: String { pathComponents.formatted() }
+    var pathString: String {
+        pathComponents.formatted()
+    }
 
     init(pathString: String) throws {
         pathComponents = try PathComponents(pathString, strategy: .pathComponents)

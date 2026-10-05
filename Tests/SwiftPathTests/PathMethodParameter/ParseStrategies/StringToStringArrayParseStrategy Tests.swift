@@ -1,10 +1,11 @@
 //
 //  StringToStringArrayParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `StringToStringArrayParseStrategy` static constructors
@@ -12,7 +13,7 @@ import SwiftPath
 @Suite
 struct StringToStringArrayParseStrategy_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == [String].self)

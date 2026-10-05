@@ -1,6 +1,7 @@
 //
 //  PathComponents.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Primitive type containing path components and a path root type.
@@ -44,7 +45,9 @@ extension PathComponents: Codable { }
 
 extension PathComponents: Identifiable {
     nonisolated
-    public var id: Self { self }
+    public var id: Self {
+        self
+    }
 }
 
 extension PathComponents: ExpressibleByArrayLiteral {

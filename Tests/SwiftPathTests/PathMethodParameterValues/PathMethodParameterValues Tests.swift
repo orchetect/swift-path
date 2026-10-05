@@ -1,11 +1,12 @@
 //
 //  PathMethodParameterValues Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests conforming a basic data structure to `PathMethodParameterValues`.
 /// It implements two generic parse strategies and format styles for `[Any]` and `[String: Any]`.
@@ -127,7 +128,11 @@ extension MyMethod {
     struct AnyArrayParseStrategy: ParseStrategy {
         @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *) // requirement for `cast(...)`
         func parse(_ value: [Any]) throws -> MyMethod {
-            let (int, string, bool) = try cast(values: value, required: MyMethod.requiredPathParameters, optional: MyMethod.optionalPathParameters)
+            let (int, string, bool) = try cast(
+                values: value,
+                required: MyMethod.requiredPathParameters,
+                optional: MyMethod.optionalPathParameters
+            )
 
             // this also works if using `AnyPathMethodParameters` instead of bare tuples, but as a two-step process:
             // let (int, string) = try MyMethod.requiredPathParameters.cast(values: value.prefix(2))
@@ -142,7 +147,9 @@ extension MyMethod {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == MyMethod.AnyArrayParseStrategy {
-    static var anyArray: Self { Self() }
+    static var anyArray: Self {
+        Self()
+    }
 }
 
 extension MyMethod {
@@ -151,7 +158,9 @@ extension MyMethod {
     struct AnyArrayFormatStyle: FormatStyle {
         func format(_ value: MyMethod) -> [Any] {
             var values: [Any] = [value.int, value.string]
-            if let bool = value.bool { values.append(bool) }
+            if let bool = value.bool {
+                values.append(bool)
+            }
             return values
         }
     }
@@ -159,7 +168,9 @@ extension MyMethod {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == MyMethod.AnyArrayFormatStyle {
-    static var anyArray: Self { Self() }
+    static var anyArray: Self {
+        Self()
+    }
 }
 
 // MARK: - Test Types - MyMethod - `[String: Any]`
@@ -185,7 +196,9 @@ extension MyMethod {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == MyMethod.AnyDictionaryParseStrategy {
-    static var anyDictionary: Self { Self() }
+    static var anyDictionary: Self {
+        Self()
+    }
 }
 
 extension MyMethod {
@@ -203,5 +216,7 @@ extension MyMethod {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == MyMethod.AnyDictionaryFormatStyle {
-    static var anyDictionary: Self { Self() }
+    static var anyDictionary: Self {
+        Self()
+    }
 }

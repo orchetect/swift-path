@@ -1,6 +1,7 @@
 //
 //  StringDecodablePath.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Conforms a ``Path`` type to `Decodable` and provides default implementation to decode from a

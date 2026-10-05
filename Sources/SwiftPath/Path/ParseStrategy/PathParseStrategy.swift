@@ -1,6 +1,7 @@
 //
 //  PathParseStrategy.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -9,8 +10,8 @@ import Foundation
 /// path parser.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public struct PathParseStrategy<Path: SwiftPath.Path, ComponentsParser: ParseStrategy, PathParser: ParseStrategy>
-where ComponentsParser.ParseInput == String, ComponentsParser.ParseOutput == PathComponents,
-      PathParser.ParseInput == PathComponents, PathParser.ParseOutput == Path
+    where ComponentsParser.ParseInput == String, ComponentsParser.ParseOutput == PathComponents,
+    PathParser.ParseInput == PathComponents, PathParser.ParseOutput == Path
 {
     /// Parser used to convert the path string into path components.
     nonisolated
@@ -76,7 +77,7 @@ extension ParseStrategy where ParseInput == String, ParseOutput: Path {
         path pathParser: PathParser
     ) -> PathParseStrategy<ParseOutput, ComponentsParser, PathParser>
         where ComponentsParser.ParseInput == String, ComponentsParser.ParseOutput == PathComponents,
-              PathParser.ParseInput == PathComponents, PathParser.ParseOutput == ParseOutput
+        PathParser.ParseInput == PathComponents, PathParser.ParseOutput == ParseOutput
     {
         PathParseStrategy(components: componentsParser, path: pathParser)
     }

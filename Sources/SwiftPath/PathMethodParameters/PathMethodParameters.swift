@@ -1,6 +1,7 @@
 //
 //  PathMethodParameters.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 public protocol PathMethodParameters: Sendable {

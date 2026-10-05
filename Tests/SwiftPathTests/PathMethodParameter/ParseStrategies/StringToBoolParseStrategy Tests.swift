@@ -1,10 +1,11 @@
 //
 //  StringToBoolParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `Bool` type:
@@ -27,19 +28,19 @@ struct StringToBoolParseStrategy_Tests {
     }
 
     @Test
-    func init_options() throws {
+    func init_options() {
         #expect(StringToBoolParseStrategy(options: []).options == [])
         #expect(StringToBoolParseStrategy(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
     @Test
-    func staticConstructors() throws {
+    func staticConstructors() {
         #expect(StringToBoolParseStrategy.bool(options: []).options == [])
         #expect(StringToBoolParseStrategy.bool(options: [.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
 
     @Test
-    func optionsComposition() throws {
+    func optionsComposition() {
         #expect(StringToBoolParseStrategy.bool.options([]).options == [])
         #expect(StringToBoolParseStrategy.bool.options([.allowOutOfBoundsNumbers]).options == [.allowOutOfBoundsNumbers])
     }
@@ -224,7 +225,7 @@ struct StringToBoolParseStrategy_Tests {
         #expect(try param.parse("0.0", strategy: .bool(options: options)) == false)
         #expect(try param.parse("1.00", strategy: .bool(options: options)) == true)
         #expect(try param.parse("0.00", strategy: .bool(options: options)) == false)
-        
+
         #expect(throws: (any Error).self) {
             _ = try param.parse("", strategy: .bool(options: options))
         }

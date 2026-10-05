@@ -1,11 +1,12 @@
 //
 //  RawRepresentableToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `RawRepresentableToStringFormatStyle` static constructors
@@ -13,7 +14,7 @@ import SwiftPath
 @Suite
 struct RawRepresentableToStringFormatStyle_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<MyEnum>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == MyEnum.self)
@@ -21,7 +22,7 @@ struct RawRepresentableToStringFormatStyle_Tests {
 
     /// Tests using the `<TYPE>.rawValueFormatStyle` static constructor
     @Test
-    func rawRepresentableExtension() throws {
+    func rawRepresentableExtension() {
         let param = AnyPathMethodParameter<MyEnum>(label: "test")
         #expect(param.format(.foo, format: MyEnum.rawValueFormatStyle) == "foo")
         #expect(param.format(.bar, format: MyEnum.rawValueFormatStyle) == "bar")

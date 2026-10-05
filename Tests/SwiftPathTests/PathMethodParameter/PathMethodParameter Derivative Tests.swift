@@ -1,10 +1,11 @@
 //
 //  PathMethodParameter Derivative Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests implementing a custom type conforming to `PathMethodParameter` in order to
 /// bundle additional metadata properties.
@@ -23,7 +24,7 @@ struct PathParameter_Derivative_Tests {
     }
 
     @Test
-    func staticConstructor_bool() throws {
+    func staticConstructor_bool() {
         let bool: any MyParamPathParameter = .bool(label: "test", description: "Test")
         #expect(bool.label == "test")
         #expect(bool.paramDescription == "Test")
@@ -31,7 +32,7 @@ struct PathParameter_Derivative_Tests {
     }
 
     @Test
-    func staticConstructor_int() throws {
+    func staticConstructor_int() {
         let int: any MyParamPathParameter = .int(label: "test", description: "Test")
         #expect(int.label == "test")
         #expect(int.paramDescription == "Test")
@@ -39,7 +40,7 @@ struct PathParameter_Derivative_Tests {
     }
 
     @Test
-    func staticConstructor_string() throws {
+    func staticConstructor_string() {
         let string: any MyParamPathParameter = .string(label: "test", description: "Test")
         #expect(string.label == "test")
         #expect(string.paramDescription == "Test")
@@ -47,7 +48,7 @@ struct PathParameter_Derivative_Tests {
     }
 
     @Test
-    func protocolConstrainedFormatMethodParameter() throws {
+    func protocolConstrainedFormatMethodParameter() {
         func format<P: MyParamPathParameter>(value: Int, using param: P) -> String where P.Value == Int {
             param.format(value, format: .string)
         }
@@ -61,7 +62,7 @@ struct PathParameter_Derivative_Tests {
             try param.parse(string, strategy: .int)
         }
 
-        #expect(try parse(string: "123",  using: .int(label: "test", description: "Test")) == 123)
+        #expect(try parse(string: "123", using: .int(label: "test", description: "Test")) == 123)
     }
 }
 
@@ -73,7 +74,7 @@ private struct MyParam<Value: MyValue> {
 
     init(label: String, description: String) {
         self.label = label
-        self.paramDescription = description
+        paramDescription = description
     }
 }
 

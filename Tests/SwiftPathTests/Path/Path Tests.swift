@@ -1,15 +1,16 @@
 //
 //  Path Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct Path_Tests {
     @Test
-    func equality() throws {
+    func equality() {
         #expect(PathA(pathComponents: ["foo"]) == PathA(pathComponents: ["foo"]))
         #expect(PathA(pathComponents: ["foo"]).pathComponents == PathA(pathComponents: ["foo"]).pathComponents)
 

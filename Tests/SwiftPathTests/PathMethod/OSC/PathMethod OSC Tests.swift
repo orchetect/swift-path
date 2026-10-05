@@ -1,14 +1,15 @@
 //
 //  PathMethod OSC Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
 
 import Foundation
-import Testing
-import SwiftPath
 import SwiftOSCCore
+import SwiftPath
+import Testing
 
 /// This suite tests implementing a `Path`, `PathMethod`, and `PathMethodParameterValues` usable with OSC.
 ///
@@ -17,7 +18,7 @@ import SwiftOSCCore
 struct PathMethod_OSC_Tests {
     /// Test that OSC address patterns using wildcard(s) match the appropriate paths.
     @Test
-    func init_pathsMatching_nonAsync() /* NOT ASYNC */ throws {
+    func init_pathsMatching_nonAsync() /* NOT ASYNC */ {
         #expect(MyPath.paths(matching: "") == [])
         #expect(MyPath.paths(matching: "/") == [])
         #expect(MyPath.paths(matching: "/foo") == [.foo])
@@ -34,7 +35,7 @@ struct PathMethod_OSC_Tests {
 
     /// Test that OSC address patterns using wildcard(s) match the appropriate paths.
     @Test
-    func init_pathsMatching_async() async throws {
+    func init_pathsMatching_async() async {
         #expect(await MyPath.paths(matching: "") == [])
         #expect(await MyPath.paths(matching: "/") == [])
         #expect(await MyPath.paths(matching: "/foo") == [.foo])
@@ -50,7 +51,7 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test(arguments: ["/foo", "/?oo", "/f??", "/f*"])
-    func init_methodsForOSCMessage_nonAsync(oscAddress: String) /* NOT ASYNC */ throws {
+    func init_methodsForOSCMessage_nonAsync(oscAddress: String) /* NOT ASYNC */ {
         let msg = OSCMessage(oscAddress, values: [123, "Test"])
         var errorCount = 0
         let methods = MyPath.methods(for: msg) { _, _ in errorCount += 1 }
@@ -66,7 +67,7 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test(arguments: ["/foo", "/?oo", "/f??", "/f*"])
-    func init_methodsForOSCMessage_async(oscAddress: String) async throws {
+    func init_methodsForOSCMessage_async(oscAddress: String) async {
         let msg = OSCMessage(oscAddress, values: [123, "Test"])
         var errorCount = 0
         let methods = await MyPath.methods(for: msg) { _, _ in errorCount += 1 }
@@ -82,7 +83,7 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test
-    func init_methodsForOSCMessage_invalidValuesA() throws {
+    func init_methodsForOSCMessage_invalidValuesA() {
         // will match both `foo` and `bar` paths, but the values are invalid for both
         let msg = OSCMessage("/*", values: [Data([0x01, 0x02])])
 
@@ -94,7 +95,7 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test
-    func init_methodsForOSCMessage_invalidValuesB() throws {
+    func init_methodsForOSCMessage_invalidValuesB() {
         // values are valid for `foo` path, but not for the `bar` path
         let msg = OSCMessage("/*", values: [123, "Test"])
 
@@ -106,7 +107,7 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test
-    func oscMessage() throws {
+    func oscMessage() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
         let msg = method.oscMessage
         #expect(msg.addressPattern == "/foo")
@@ -114,24 +115,24 @@ struct PathMethod_OSC_Tests {
     }
 
     @Test
-    func oscValues() throws {
+    func oscValues() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
         let values = method.oscValues
         #expect(values == [123, "Test"])
     }
 
     @Test
-    func OSCPath_typealias() throws {
+    func OSCPath_typealias() {
         let _: any OSCPath = MyPath.bar
     }
 
     @Test
-    func OSCPathMethod_typealias() throws {
+    func OSCPathMethod_typealias() {
         let _: any OSCPathMethod = MyMethod.foo(FooValues(int: 123, string: "Test"))
     }
 
     @Test
-    func OSCPathMethodParameterValues_typealias() throws {
+    func OSCPathMethodParameterValues_typealias() {
         let _: any OSCPathMethodParameterValues = FooValues(int: 123, string: "Test")
         let _: any OSCPathMethodParameterValues = BarValues(bool: true)
     }
@@ -239,7 +240,7 @@ extension FooValues: OSCValuesParseablePathMethodParameterValues {
 }
 
 extension FooValues: OSCValuesFormattablePathMethodParameterValues {
-    static let oscValuesFormatStyle: OSCValuesFormatStyle = OSCValuesFormatStyle()
+    static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
     /// Ordered OSC message values array.
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
@@ -278,7 +279,7 @@ extension BarValues: OSCValuesParseablePathMethodParameterValues {
 }
 
 extension BarValues: OSCValuesFormattablePathMethodParameterValues {
-    static let oscValuesFormatStyle: OSCValuesFormatStyle = OSCValuesFormatStyle()
+    static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
     /// Ordered OSC message values array.
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)

@@ -1,21 +1,22 @@
 //
 //  Nested Enums CaseIterableContainerPathComponent Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite uses a mock `Path` type comprised of nested enums that each conform to
 /// ``PathComponent``, ``ContainerPathComponent`` and ``CaseIterableContainerPathComponent``.
-/// 
+///
 /// The `TertiaryPath` mock type is an example that overrides the default `static var allCases`
 /// with a statically-stored property of the same name so that it is not re-computed on every access.
 @Suite
 struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
     @Test
-    func enumPath_allCases() throws {
+    func enumPath_allCases() {
         #expect(EnumPath.allCases == [
             .one(.foo(.a)),
             .one(.foo(.b)),
@@ -28,7 +29,7 @@ struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
     }
 
     @Test
-    func subPath_allCases() throws {
+    func subPath_allCases() {
         #expect(SubPath.allCases == [
             .foo(.a),
             .foo(.b),
@@ -37,7 +38,7 @@ struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
     }
 
     @Test
-    func tertiaryPath_allCases() throws {
+    func tertiaryPath_allCases() {
         #expect(TertiaryPath.allCases == [
             .a,
             .b

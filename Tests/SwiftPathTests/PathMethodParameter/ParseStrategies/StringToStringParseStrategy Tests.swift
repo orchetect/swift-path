@@ -1,10 +1,11 @@
 //
 //  StringToStringParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `Bool` type:
@@ -27,19 +28,19 @@ struct StringToStringParseStrategy_Tests {
     }
 
     @Test
-    func init_options() throws {
+    func init_options() {
         #expect(StringToStringParseStrategy(options: []).options == [])
         #expect(StringToStringParseStrategy(options: [.rejectEmpty]).options == [.rejectEmpty])
     }
 
     @Test
-    func staticConstructors() throws {
+    func staticConstructors() {
         #expect(StringToStringParseStrategy.string(options: []).options == [])
         #expect(StringToStringParseStrategy.string(options: [.rejectEmpty]).options == [.rejectEmpty])
     }
 
     @Test
-    func optionsComposition() throws {
+    func optionsComposition() {
         #expect(StringToStringParseStrategy.string.options([]).options == [])
         #expect(StringToStringParseStrategy.string.options([.rejectEmpty]).options == [.rejectEmpty])
     }

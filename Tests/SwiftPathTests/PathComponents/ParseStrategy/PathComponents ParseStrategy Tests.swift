@@ -1,15 +1,16 @@
 //
 //  PathComponents ParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct PathComponents_ParseStrategy_Tests {
     @Test
-    func composition() throws {
+    func composition() {
         let strategy: PathComponents.ParseStrategy = .pathComponents
             .root(.relative)
             .rootSeparator(">")

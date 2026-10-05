@@ -1,6 +1,7 @@
 //
 //  ConstructiblePathComponent.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Conforms a ``PathComponent`` to allow default implementation to handle recursive

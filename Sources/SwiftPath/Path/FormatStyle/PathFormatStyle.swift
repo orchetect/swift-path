@@ -1,6 +1,7 @@
 //
 //  PathFormatStyle.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -9,8 +10,8 @@ import Foundation
 /// components formatter.
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public struct PathFormatStyle<Path: SwiftPath.Path, PathFormatter: FormatStyle, ComponentsFormatter: FormatStyle>
-where PathFormatter.FormatInput == Path, PathFormatter.FormatOutput == PathComponents,
-      ComponentsFormatter.FormatInput == PathComponents, ComponentsFormatter.FormatOutput == String
+    where PathFormatter.FormatInput == Path, PathFormatter.FormatOutput == PathComponents,
+    ComponentsFormatter.FormatInput == PathComponents, ComponentsFormatter.FormatOutput == String
 {
     /// Formatter used to format the path into path components.
     nonisolated
@@ -65,7 +66,7 @@ extension FormatStyle where FormatInput: Path, FormatOutput == String {
 
     /// A structure that creates a path string from a path by chaining a path formatter into a path
     /// components formatter.
-    /// 
+    ///
     /// - Parameters:
     ///   - pathFormatter: Formatter used to format the path into path components.
     ///   - componentsFormatter: Formatter used to format the path components returned by
@@ -77,7 +78,7 @@ extension FormatStyle where FormatInput: Path, FormatOutput == String {
         components componentsFormatter: ComponentsFormatter = .pathComponents
     ) -> PathFormatStyle<FormatInput, PathFormatter, ComponentsFormatter>
         where PathFormatter.FormatInput == FormatInput, PathFormatter.FormatOutput == PathComponents,
-              ComponentsFormatter.FormatInput == PathComponents, ComponentsFormatter.FormatOutput == String
+        ComponentsFormatter.FormatInput == PathComponents, ComponentsFormatter.FormatOutput == String
     {
         PathFormatStyle(path: pathFormatter, components: componentsFormatter)
     }

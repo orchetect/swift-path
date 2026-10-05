@@ -1,11 +1,12 @@
 //
 //  PathMethod String Dictionary Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests implementing a `Path`, `PathMethod`, and `PathMethodParameterValues` usable with a
 /// `String` dictionary.
@@ -44,24 +45,24 @@ struct PathMethod_String_Dictionary_Tests {
     }
 
     @Test
-    func stringDictionary() throws {
+    func stringDictionary() {
         let method = MyMethod.foo(FooValues(int: 123, string: "Test"))
         let stringDictionary = method.stringDictionary
         #expect(stringDictionary == ["int": "123", "string": "Test"])
     }
 
     @Test
-    func StringDictionaryPath_typealias() throws {
+    func StringDictionaryPath_typealias() {
         let _: any StringDictionaryPath = MyPath.bar
     }
 
     @Test
-    func StringDictionaryPathMethod_typealias() throws {
+    func StringDictionaryPathMethod_typealias() {
         let _: any StringDictionaryPathMethod = MyMethod.foo(FooValues(int: 123, string: "Test"))
     }
 
     @Test
-    func StringDictionaryPathMethodParameterValues_typealias() throws {
+    func StringDictionaryPathMethodParameterValues_typealias() {
         let _: any StringDictionaryPathMethodParameterValues = FooValues(int: 123, string: "Test")
         let _: any StringDictionaryPathMethodParameterValues = BarValues(bool: true)
     }
@@ -173,9 +174,11 @@ extension FooValues: StringDictionaryFormattablePathMethodParameterValues {
 
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct StringDictionaryFormatStyle: FormatStyle {
-        func format(_ value: FooValues) -> [String: String]  {
-            [parameters.0.label: parameters.0.format(value.int, format: .string),
-             parameters.1.label: parameters.1.format(value.string, format: .string)]
+        func format(_ value: FooValues) -> [String: String] {
+            [
+                parameters.0.label: parameters.0.format(value.int, format: .string),
+                parameters.1.label: parameters.1.format(value.string, format: .string)
+            ]
         }
     }
 }

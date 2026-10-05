@@ -1,6 +1,7 @@
 //
 //  OSCValuesParseablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -12,7 +13,8 @@ import SwiftOSCCore
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol OSCValuesParseablePathMethodParameterValues: ParseablePathMethodParameterValues {
     /// Parser used to decode the type's parameter values from OSC values.
-    associatedtype OSCValuesParseStrategy: ParseStrategy where OSCValuesParseStrategy.ParseInput == OSCValues, OSCValuesParseStrategy.ParseOutput == Self
+    associatedtype OSCValuesParseStrategy: ParseStrategy where OSCValuesParseStrategy.ParseInput == OSCValues,
+        OSCValuesParseStrategy.ParseOutput == Self
 
     /// Parser used to decode the type's parameter values from OSC values.
     static var oscValuesParseStrategy: OSCValuesParseStrategy { get }

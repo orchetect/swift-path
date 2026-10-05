@@ -1,11 +1,12 @@
 //
 //  StringToDataParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `Data` type:
@@ -20,24 +21,24 @@ import SwiftPath
 @Suite
 struct StringToDataParseStrategy_Tests {
     @Test
-    func data() throws {
+    func data() {
         let param = AnyPathMethodParameter.data(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Data.self)
     }
 
     @Test
-    func init_encoding() throws {
+    func init_encoding() {
         #expect(StringToDataParseStrategy(encoding: .base64).encoding == .base64)
     }
 
     @Test
-    func staticConstructors() throws {
+    func staticConstructors() {
         #expect(StringToDataParseStrategy.data(encoding: .base64).encoding == .base64)
     }
 
     @Test
-    func encodingComposition() throws {
+    func encodingComposition() {
         #expect(StringToDataParseStrategy.data.encoding(.base64).encoding == .base64)
     }
 

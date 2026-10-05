@@ -1,6 +1,7 @@
 //
 //  OSCValuesFormattablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -12,7 +13,8 @@ import SwiftOSCCore
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol OSCValuesFormattablePathMethodParameterValues: FormattablePathMethodParameterValues {
     /// Formatter used to encode the type's parameter values as OSC values.
-    associatedtype OSCValuesFormatStyle: FormatStyle where OSCValuesFormatStyle.FormatInput == Self, OSCValuesFormatStyle.FormatOutput == OSCValues
+    associatedtype OSCValuesFormatStyle: FormatStyle where OSCValuesFormatStyle.FormatInput == Self,
+        OSCValuesFormatStyle.FormatOutput == OSCValues
 
     /// Formatter used to encode the type's parameter values as OSC values.
     static var oscValuesFormatStyle: OSCValuesFormatStyle { get }

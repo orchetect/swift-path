@@ -1,6 +1,7 @@
 //
 //  EmptyStringDictionaryParseablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -26,7 +27,9 @@ extension EmptyStringDictionaryParseablePathMethodParameterValues {
 /// A format style that expects an empty dictionary of `String` key/value pairs.
 ///
 /// This is provided as a convenience where a type has no parameters.
-public struct EmptyStringDictionaryParseStrategy<ParseOutput>: ParseStrategy, Sendable where ParseOutput: EmptyStringDictionaryParseablePathMethodParameterValues {
+public struct EmptyStringDictionaryParseStrategy<ParseOutput>: ParseStrategy,
+    Sendable where ParseOutput: EmptyStringDictionaryParseablePathMethodParameterValues
+{
     public func parse(_ value: [String: String]) throws -> ParseOutput {
         guard value.isEmpty else {
             throw PathMethodParametersParseError.invalidParameters

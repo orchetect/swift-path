@@ -1,24 +1,25 @@
 //
 //  PathMethodParameter Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite contains basic tests for the `PathMethodParameter` protocol in various scenarios
 /// using type erasure or generic constraints.
 @Suite
 struct PathParameter_Tests {
     @Test
-    func anyProtocol() throws {
+    func anyProtocol() {
         let param: any PathMethodParameter = .int(label: "test")
         #expect(param.label == "test")
         // can't use `format()` or `parse()` on an `any` protocol because they have associated generics
     }
 
     @Test
-    func protocolConstrainedFormatMethodParameter() throws {
+    func protocolConstrainedFormatMethodParameter() {
         func format<P: PathMethodParameter>(value: Int, using param: P) -> String where P.Value == Int {
             param.format(value, format: .string)
         }
@@ -32,7 +33,7 @@ struct PathParameter_Tests {
             try param.parse(string, strategy: .int)
         }
 
-        #expect(try parse(string: "123",  using: .int(label: "test")) == 123)
+        #expect(try parse(string: "123", using: .int(label: "test")) == 123)
     }
 
     @Test

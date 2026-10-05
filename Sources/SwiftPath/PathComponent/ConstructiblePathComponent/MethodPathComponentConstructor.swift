@@ -1,6 +1,7 @@
 //
 //  MethodPathComponentConstructor.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// A path component constructor that may be used for path components that are methods.
@@ -16,7 +17,9 @@ public struct MethodPathComponentConstructor<BaseComponent: ConstructiblePathCom
 }
 
 extension MethodPathComponentConstructor: PathComponentConstructor {
-    public var pathComponentType: PathComponentType { .method }
+    public var pathComponentType: PathComponentType {
+        .method
+    }
 
     public func construct(trailingPathComponents: PathComponents) throws -> BaseComponent {
         // ensure path component is a method by checking that there are no additional path components

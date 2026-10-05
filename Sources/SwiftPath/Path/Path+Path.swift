@@ -1,6 +1,7 @@
 //
 //  Path+Path.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 extension Path {
@@ -12,7 +13,7 @@ extension Path {
 
     /// Constructs a new path by converting a path of another type.
     /// An error is thrown if the path is not representable.
-    public init<P: Path>(converting path: P) throws {
+    public init(converting path: some Path) throws {
         try self.init(pathComponents: path.pathComponents)
     }
 }

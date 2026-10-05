@@ -1,6 +1,7 @@
 //
 //  ContainerPathComponentConstructor.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// A path component constructor used may be for path components that are containers.
@@ -16,7 +17,7 @@ public struct ContainerPathComponentConstructor<BaseComponent: ConstructiblePath
         of subComponentType: SubComponent.Type,
         constructor: @escaping Constructor
     ) where SubComponent: CaseIterable, SubComponent.AllCases == [SubComponent] {
-        self.allCasesConstructor = { SubComponent.allCases }
+        allCasesConstructor = { SubComponent.allCases }
         self.constructor = constructor
     }
 
@@ -27,13 +28,15 @@ public struct ContainerPathComponentConstructor<BaseComponent: ConstructiblePath
         allCases: @escaping AllCasesConstructor = { [] },
         constructor: @escaping Constructor
     ) {
-        self.allCasesConstructor = allCases
+        allCasesConstructor = allCases
         self.constructor = constructor
     }
 }
 
 extension ContainerPathComponentConstructor: PathComponentConstructor {
-    public var pathComponentType: PathComponentType { .container }
+    public var pathComponentType: PathComponentType {
+        .container
+    }
 
     public func construct(trailingPathComponents: PathComponents) throws -> BaseComponent {
         let subComponent = try SubComponent(pathComponents: trailingPathComponents)

@@ -1,6 +1,7 @@
 //
 //  OSCAddressPatternParseablePath.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -29,7 +30,7 @@ extension OSCAddressPatternParseablePath {
     public static func paths(matching oscAddressPattern: OSCAddressPattern) -> [Self] {
         // Note: This works, but it can be very inefficient.
         // It's better to use OSCAddressSpace to return matching paths.
-        Self.allCases.lazy.filter { path in
+        allCases.lazy.filter { path in
             path.matches(oscAddressPattern: oscAddressPattern)
         }
     }
@@ -59,7 +60,9 @@ extension OSCAddressPatternParseablePath {
 // MARK: - OSCPathCache
 
 /// Static path cache used internally for OSC address pattern matching.
-public final actor OSCPathCache<Path>: Sendable where Path: SwiftPath.Path & OSCAddressPatternFormattablePath & Hashable & Sendable & CaseIterable {
+public final actor OSCPathCache<Path>: Sendable
+    where Path: SwiftPath.Path & OSCAddressPatternFormattablePath & Hashable & Sendable & CaseIterable
+{
     let oscAddressSpace = OSCAddressSpace<Path>()
     var isRegistered = false
 
@@ -69,7 +72,9 @@ public final actor OSCPathCache<Path>: Sendable where Path: SwiftPath.Path & OSC
     /// If the instance does not yet exist, it will first be created.
     nonisolated
     func get() async -> OSCAddressSpace<Path> {
-        if await isRegistered { return oscAddressSpace }
+        if await isRegistered {
+            return oscAddressSpace
+        }
         await Path.allCases.register(in: oscAddressSpace)
         await setIsRegistered(true)
         return oscAddressSpace

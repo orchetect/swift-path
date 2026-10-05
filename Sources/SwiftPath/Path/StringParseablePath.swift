@@ -1,6 +1,7 @@
 //
 //  StringParseablePath.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -10,7 +11,8 @@ import Foundation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol StringParseablePath: Path {
     /// Parse strategy used to parse path strings into path components.
-    associatedtype StringParseStrategy: ParseStrategy where StringParseStrategy.ParseInput == String, StringParseStrategy.ParseOutput == PathComponents
+    associatedtype StringParseStrategy: ParseStrategy where StringParseStrategy.ParseInput == String,
+        StringParseStrategy.ParseOutput == PathComponents
 
     /// Parse strategy used to parse path strings into path components.
     static var pathStringParseStrategy: StringParseStrategy { get }

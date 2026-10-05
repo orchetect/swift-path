@@ -1,10 +1,11 @@
 //
 //  BoolToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `Bool` type:
@@ -16,7 +17,7 @@ import SwiftPath
 @Suite
 struct BoolToStringFormatStyle_Tests {
     @Test
-    func bool() throws {
+    func bool() {
         let param = AnyPathMethodParameter.bool(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Bool.self)

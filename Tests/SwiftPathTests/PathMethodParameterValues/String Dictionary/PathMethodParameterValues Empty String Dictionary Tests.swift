@@ -1,6 +1,7 @@
 //
 //  PathMethodParameterValues Empty String Dictionary Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -23,7 +24,7 @@ struct PathMethodParameterValues_Empty_String_Dictionary_Tests {
     }
 
     @Test
-    func stringDictionary() throws {
+    func stringDictionary() {
         #expect(MyMethod().stringDictionary.isEmpty)
         #expect(MyMethod(value: 1).stringDictionary.isEmpty)
     }

@@ -1,6 +1,7 @@
 //
 //  URL PathComponentsParseStrategy.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -64,7 +65,7 @@ extension URL.PathComponentsParseStrategy: ParseStrategy {
             path += value.components.joined(separator: "/")
             urlComponents.path = path
         }
-        
+
         guard let url = urlComponents.url else {
             throw PathParseError.invalidPath
         }

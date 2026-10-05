@@ -1,18 +1,19 @@
 //
 //  AnyPath Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct AnyPath_Tests {
     // MARK: - `Path`
 
     @Test
-    func init_pathComponents() throws {
+    func init_pathComponents() {
         #expect(AnyPath(pathComponents: []).pathComponents == [])
         #expect(AnyPath(pathComponents: ["a", "b"]).pathComponents == ["a", "b"])
     }
@@ -20,7 +21,7 @@ struct AnyPath_Tests {
     // MARK: - `Equatable`
 
     @Test
-    func equatable() throws {
+    func equatable() {
         #expect(AnyPath(pathComponents: []) == AnyPath(pathComponents: []))
         #expect(AnyPath(pathComponents: ["a", "b"]) == AnyPath(pathComponents: ["a", "b"]))
         #expect(AnyPath(pathComponents: ["a", "b"]) != AnyPath(pathComponents: []))
@@ -29,7 +30,7 @@ struct AnyPath_Tests {
     // MARK: - `Hashable`
 
     @Test
-    func hashable() throws {
+    func hashable() {
         let paths: Set<AnyPath> = [
             AnyPath(pathComponents: ["a", "b"]),
             AnyPath(pathComponents: ["a", "b"]),
@@ -41,7 +42,7 @@ struct AnyPath_Tests {
     // MARK: `Sendable`
 
     @Test
-    func sendable() throws {
+    func sendable() {
         final class TestClass: Sendable {
             let path: AnyPath
 
@@ -68,7 +69,7 @@ struct AnyPath_Tests {
     // MARK: `StringFormattablePath`
 
     @Test
-    func pathString() throws {
+    func pathString() {
         #expect(AnyPath(pathComponents: []).pathString == "/")
         #expect(AnyPath(pathComponents: ["a", "b"]).pathString == "/a/b")
     }

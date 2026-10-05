@@ -19,7 +19,7 @@ let package = Package(
         .package(url: "https://github.com/orchetect/swift-value-formatting", from: "0.1.0"),
 
         // opt-in trait packages
-        .package(url: "https://github.com/orchetect/swift-osc-core", from: "1.4.1"),
+        .package(url: "https://github.com/orchetect/swift-osc-core", from: "1.4.1")
     ],
     targets: [
         .target(

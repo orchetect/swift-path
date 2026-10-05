@@ -1,15 +1,16 @@
 //
 //  PathComponents FormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct PathComponents_FormatStyle_Tests {
     @Test
-    func composition() throws {
+    func composition() {
         let style: PathComponents.FormatStyle = .pathComponents
             .root(.relative)
             .rootSeparator(">")
@@ -20,7 +21,7 @@ struct PathComponents_FormatStyle_Tests {
     }
 
     @Test
-    func formatAbsoluteRoot() throws {
+    func formatAbsoluteRoot() {
         let style: PathComponents.FormatStyle = .pathComponents
             .root(.absolute)
 
@@ -42,7 +43,7 @@ struct PathComponents_FormatStyle_Tests {
     }
 
     @Test
-    func formatRelativeRoot() throws {
+    func formatRelativeRoot() {
         let style: PathComponents.FormatStyle = .pathComponents
             .root(.relative)
 

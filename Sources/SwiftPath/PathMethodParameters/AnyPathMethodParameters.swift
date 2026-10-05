@@ -1,6 +1,7 @@
 //
 //  AnyPathMethodParameters.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// A structure containing one or more path method parameter descriptors allowing both strongly-typed
@@ -53,7 +54,7 @@ extension AnyPathMethodParameters {
             return cast
         }
 
-        let tuple = (repeat try castValue(each parameters))
+        let tuple = try (repeat castValue(each parameters))
         return tuple
     }
 
@@ -74,6 +75,6 @@ extension AnyPathMethodParameters {
             return cast
         }
 
-        return (repeat try castValue(each parameters))
+        return try (repeat castValue(each parameters))
     }
 }

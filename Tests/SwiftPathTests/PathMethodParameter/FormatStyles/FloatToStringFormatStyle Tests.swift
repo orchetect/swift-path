@@ -1,10 +1,11 @@
 //
 //  FloatToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructors for float types:
@@ -16,7 +17,7 @@ import SwiftPath
 @Suite
 struct FloatToStringFormatStyle_Tests {
     @Test
-    func double() throws {
+    func double() {
         let param = AnyPathMethodParameter.double(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Double.self)
@@ -24,7 +25,7 @@ struct FloatToStringFormatStyle_Tests {
     }
 
     @Test
-    func float() throws {
+    func float() {
         let param = AnyPathMethodParameter.float(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Float.self)

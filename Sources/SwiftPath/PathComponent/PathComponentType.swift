@@ -1,8 +1,7 @@
 //
 //  PathComponentType.swift
-//  swift-path
-//
-//  Created by Steffan Andrews on 2026-09-20.
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 public enum PathComponentType {

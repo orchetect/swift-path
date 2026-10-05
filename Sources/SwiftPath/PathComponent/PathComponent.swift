@@ -1,6 +1,7 @@
 //
 //  PathComponent.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Protocol that can be applied to types when designing a path tree using more than one concrete type.

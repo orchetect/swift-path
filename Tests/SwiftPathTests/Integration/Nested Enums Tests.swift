@@ -1,11 +1,12 @@
 //
 //  Nested Enums Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite uses a mock `Path` type comprised of nested enums and tests
 /// `Path` requirements as well as requirements of various related protocols:
@@ -42,7 +43,7 @@ struct Nested_Enums_Tests {
     }
 
     @Test
-    func pathComponents() throws {
+    func pathComponents() {
         #expect(EnumPath.one(.foo).pathComponents == ["one", "foo"])
         #expect(EnumPath.one(.bar).pathComponents == ["one", "bar"])
         #expect(EnumPath.two.pathComponents == ["two"])
@@ -100,7 +101,7 @@ struct Nested_Enums_Tests {
     // MARK: - `StringFormattablePath` Implementation
 
     @Test
-    func pathString() throws {
+    func pathString() {
         #expect(EnumPath.one(.foo).pathString == ">one.foo")
         #expect(EnumPath.one(.bar).pathString == ">one.bar")
         #expect(EnumPath.two.pathString == ">two")
@@ -171,7 +172,7 @@ extension EnumPath: Path {
 
 extension EnumPath: StringParseablePath {
     static let pathStringParseStrategy = PathComponents.ParseStrategy(
-        root: nil, 
+        root: nil,
         rootSeparator: ">",
         pathSeparator: "."
     )

@@ -1,11 +1,12 @@
 //
 //  StringToRawRepresentableParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `StringToRawRepresentableParseStrategy` static constructors
@@ -13,7 +14,7 @@ import SwiftPath
 @Suite
 struct StringToRawRepresentableParseStrategy_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<MyEnum>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == MyEnum.self)

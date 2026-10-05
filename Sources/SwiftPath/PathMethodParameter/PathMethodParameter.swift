@@ -1,6 +1,7 @@
 //
 //  PathMethodParameter.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// A parameter descriptor used in a parameterized path.
@@ -62,8 +63,8 @@ public func cast<each RP: PathMethodParameter, each OP: PathMethodParameter>(
         return cast
     }
 
-    let reqCast = (repeat try castRequiredValue(each required))
-    let optCast = (repeat try castOptionalValue(each optional))
+    let reqCast = try (repeat castRequiredValue(each required))
+    let optCast = try (repeat castOptionalValue(each optional))
 
     guard values.count <= counter else { throw PathMethodParametersParseError.invalidParameters }
 

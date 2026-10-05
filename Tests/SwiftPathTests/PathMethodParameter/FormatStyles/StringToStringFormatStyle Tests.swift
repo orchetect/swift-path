@@ -1,10 +1,11 @@
 //
 //  StringToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `String` type:
@@ -16,7 +17,7 @@ import SwiftPath
 @Suite
 struct StringToStringFormatStyle_Tests {
     @Test
-    func string() throws {
+    func string() {
         let param = AnyPathMethodParameter.string(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == String.self)

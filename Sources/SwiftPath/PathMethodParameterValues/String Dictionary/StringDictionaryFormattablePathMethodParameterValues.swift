@@ -1,6 +1,7 @@
 //
 //  StringDictionaryFormattablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -12,7 +13,7 @@ public protocol StringDictionaryFormattablePathMethodParameterValues: Formattabl
     /// Formatter used to encode the type's parameter values as a dictionary of `String` key/value pairs.
     associatedtype StringDictionaryFormatStyle: FormatStyle
         where StringDictionaryFormatStyle.FormatInput == Self,
-              StringDictionaryFormatStyle.FormatOutput == [String: String]
+        StringDictionaryFormatStyle.FormatOutput == [String: String]
 
     /// Formatter used to encode the type's parameter values as a dictionary of `String` key/value pairs.
     static var stringDictionaryFormatStyle: StringDictionaryFormatStyle { get }

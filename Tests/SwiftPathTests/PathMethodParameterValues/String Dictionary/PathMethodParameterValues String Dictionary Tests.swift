@@ -1,11 +1,12 @@
 //
 //  PathMethodParameterValues String Dictionary Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 @Suite
 struct PathMethodParameterValues_String_Dictionary_Tests {
@@ -111,7 +112,11 @@ extension MyMethod: StringDictionaryFormattablePathMethodParameterValues {
         func format(_ value: MyMethod) -> [String: String] {
             let int = MyMethod.requiredPathParameters.0.format(value.int, format: .string)
             let string = MyMethod.requiredPathParameters.1.format(value.string, format: .string)
-            let bool: String? = if let v = value.bool { MyMethod.optionalPathParameters.format(v, format: .string) } else { nil }
+            let bool: String? = if let v = value.bool {
+                MyMethod.optionalPathParameters.format(v, format: .string)
+            } else {
+                nil
+            }
 
             var dict: [String: String] = [:]
             dict[MyMethod.requiredPathParameters.0.label] = int

@@ -1,6 +1,7 @@
 //
 //  PathComponentConstructor.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 /// Defines the requirements for a path component constructor used when a type conforms

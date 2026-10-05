@@ -1,17 +1,18 @@
 //
 //  Nested Enums PathComponent B Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This is an example of implementing separate ``Path`` and ``PathComponent`` types.
 ///
 /// This suite uses a mock `Path` type comprised of nested enums that each conform to
 /// ``PathComponent`` and its various refining protocols.
-/// 
+///
 /// It also ensures that path trees can be reused and are not tightly coupled to their parents.
 @Suite
 struct Nested_Enums_PathComponent_B_Tests {
@@ -48,7 +49,7 @@ struct Nested_Enums_PathComponent_B_Tests {
     }
 
     @Test
-    func pathComponents() throws {
+    func pathComponents() {
         #expect(EnumPath.one(.foo(.a)).pathComponents == ["one", "foo", "a"])
         #expect(EnumPath.one(.bar).pathComponents == ["one", "bar"])
 
@@ -116,7 +117,7 @@ struct Nested_Enums_PathComponent_B_Tests {
     // MARK: - `StringFormattablePath` Implementation
 
     @Test
-    func pathString() throws {
+    func pathString() {
         #expect(MyPath(path: EnumPath.one(.foo(.a))).pathString == ">one.foo.a")
         #expect(MyPath(path: EnumPath.one(.bar)).pathString == ">one.bar")
 

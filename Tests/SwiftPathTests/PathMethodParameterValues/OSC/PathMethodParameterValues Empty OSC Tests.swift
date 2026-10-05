@@ -1,6 +1,7 @@
 //
 //  PathMethodParameterValues Empty OSC Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -29,7 +30,7 @@ struct PathMethodParameterValues_Empty_OSC_Tests {
     }
 
     @Test
-    func oscValues() throws {
+    func oscValues() {
         #expect(MyMethod().oscValues.isEmpty)
         #expect(MyMethod(value: 1).oscValues.isEmpty)
     }

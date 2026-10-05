@@ -1,11 +1,12 @@
 //
 //  StringArrayToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `StringArrayToStringFormatStyle` static constructor
@@ -13,14 +14,14 @@ import SwiftPath
 @Suite
 struct StringArrayToStringFormatStyle_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == [String].self)
     }
 
     @Test
-    func staticConstructor() throws {
+    func staticConstructor() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
 
         // default separator
@@ -33,7 +34,7 @@ struct StringArrayToStringFormatStyle_Tests {
     }
 
     @Test
-    func separatorComposition() throws {
+    func separatorComposition() {
         let param = AnyPathMethodParameter<[String]>(label: "test")
 
         #expect(param.format(["foo"], format: .string.separator("|")) == "foo")

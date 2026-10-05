@@ -1,10 +1,11 @@
 //
 //  IntToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructors for integer types:
@@ -16,7 +17,7 @@ import SwiftPath
 @Suite
 struct IntToStringFormatStyle_Tests {
     @Test
-    func int() throws {
+    func int() {
         let param = AnyPathMethodParameter.int(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Int.self)
@@ -24,7 +25,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func int8() throws {
+    func int8() {
         let param = AnyPathMethodParameter.int8(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Int8.self)
@@ -32,7 +33,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func int16() throws {
+    func int16() {
         let param = AnyPathMethodParameter.int16(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Int16.self)
@@ -40,7 +41,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func int32() throws {
+    func int32() {
         let param = AnyPathMethodParameter.int32(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Int32.self)
@@ -48,7 +49,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func int64() throws {
+    func int64() {
         let param = AnyPathMethodParameter.int64(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Int64.self)
@@ -56,7 +57,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func uInt() throws {
+    func uInt() {
         let param = AnyPathMethodParameter.uInt(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == UInt.self)
@@ -64,7 +65,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func uInt8() throws {
+    func uInt8() {
         let param = AnyPathMethodParameter.uInt8(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == UInt8.self)
@@ -72,7 +73,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func uInt16() throws {
+    func uInt16() {
         let param = AnyPathMethodParameter.uInt16(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == UInt16.self)
@@ -80,7 +81,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func uInt32() throws {
+    func uInt32() {
         let param = AnyPathMethodParameter.uInt32(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == UInt32.self)
@@ -88,7 +89,7 @@ struct IntToStringFormatStyle_Tests {
     }
 
     @Test
-    func uInt64() throws {
+    func uInt64() {
         let param = AnyPathMethodParameter.uInt64(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == UInt64.self)

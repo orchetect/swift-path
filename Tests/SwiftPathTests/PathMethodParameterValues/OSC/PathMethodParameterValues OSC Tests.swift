@@ -1,6 +1,7 @@
 //
 //  PathMethodParameterValues OSC Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 #if osc
@@ -87,14 +88,16 @@ extension MyMethod: OSCValuesParseablePathMethodParameterValues {
 }
 
 extension MyMethod: OSCValuesFormattablePathMethodParameterValues {
-    static let oscValuesFormatStyle: OSCValuesFormatStyle = OSCValuesFormatStyle()
+    static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
     /// Ordered OSC message values array.
     @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     struct OSCValuesFormatStyle: FormatStyle {
         func format(_ value: MyMethod) -> OSCValues {
             var values: OSCValues = [value.int, value.string]
-            if let bool = value.bool { values.append(bool) }
+            if let bool = value.bool {
+                values.append(bool)
+            }
             return values
         }
     }

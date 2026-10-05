@@ -1,6 +1,7 @@
 //
 //  Path+PathFormatStyle.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -14,8 +15,8 @@ extension Path {
     ///
     /// - Parameters:
     ///   - format: The format for formatting `self`.
-    public func formatted<PathFormatter: FormatStyle, ComponentsFormatter: FormatStyle>(
-        _ format: PathFormatStyle<Self, PathFormatter, ComponentsFormatter>
+    public func formatted(
+        _ format: PathFormatStyle<Self, some FormatStyle, some FormatStyle>
     ) -> String {
         format.format(self)
     }

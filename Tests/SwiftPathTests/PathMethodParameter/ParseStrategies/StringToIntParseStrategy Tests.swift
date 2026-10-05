@@ -1,10 +1,11 @@
 //
 //  StringToIntParseStrategy Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for integer types:
@@ -33,19 +34,19 @@ struct StringToIntParseStrategy_Tests {
     // (Since this initializer is shared for all associated integer types, we don't need to repeat this
     // test for every integer type in this test suite.)
     @Test
-    func int_init_encoding() throws {
+    func int_init_encoding() {
         #expect(StringToIntParseStrategy<Int>(options: []).options == [])
         #expect(StringToIntParseStrategy<Int>(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int_staticConstructors() throws {
+    func int_staticConstructors() {
         #expect(StringToIntParseStrategy.int(options: []).options == [])
         #expect(StringToIntParseStrategy.int(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int_encodingComposition() throws {
+    func int_encodingComposition() {
         #expect(StringToIntParseStrategy.int.options([]).options == [])
         #expect(StringToIntParseStrategy.int.options([.allowBool]).options == [.allowBool])
     }
@@ -66,13 +67,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func int8_staticConstructors() throws {
+    func int8_staticConstructors() {
         #expect(StringToIntParseStrategy.int8(options: []).options == [])
         #expect(StringToIntParseStrategy.int8(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int8_encodingComposition() throws {
+    func int8_encodingComposition() {
         #expect(StringToIntParseStrategy.int8.options([]).options == [])
         #expect(StringToIntParseStrategy.int8.options([.allowBool]).options == [.allowBool])
     }
@@ -93,13 +94,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func int16_staticConstructors() throws {
+    func int16_staticConstructors() {
         #expect(StringToIntParseStrategy.int16(options: []).options == [])
         #expect(StringToIntParseStrategy.int16(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int16_encodingComposition() throws {
+    func int16_encodingComposition() {
         #expect(StringToIntParseStrategy.int16.options([]).options == [])
         #expect(StringToIntParseStrategy.int16.options([.allowBool]).options == [.allowBool])
     }
@@ -120,13 +121,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func int32_staticConstructors() throws {
+    func int32_staticConstructors() {
         #expect(StringToIntParseStrategy.int32(options: []).options == [])
         #expect(StringToIntParseStrategy.int32(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int32_encodingComposition() throws {
+    func int32_encodingComposition() {
         #expect(StringToIntParseStrategy.int32.options([]).options == [])
         #expect(StringToIntParseStrategy.int32.options([.allowBool]).options == [.allowBool])
     }
@@ -147,13 +148,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func int64_staticConstructors() throws {
+    func int64_staticConstructors() {
         #expect(StringToIntParseStrategy.int64(options: []).options == [])
         #expect(StringToIntParseStrategy.int64(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func int64_encodingComposition() throws {
+    func int64_encodingComposition() {
         #expect(StringToIntParseStrategy.int64.options([]).options == [])
         #expect(StringToIntParseStrategy.int64.options([.allowBool]).options == [.allowBool])
     }
@@ -174,13 +175,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func uInt_staticConstructors() throws {
+    func uInt_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func uInt_encodingComposition() throws {
+    func uInt_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt.options([.allowBool]).options == [.allowBool])
     }
@@ -201,13 +202,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func uInt8_staticConstructors() throws {
+    func uInt8_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt8(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt8(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func uInt8_encodingComposition() throws {
+    func uInt8_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt8.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt8.options([.allowBool]).options == [.allowBool])
     }
@@ -228,13 +229,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func uInt16_staticConstructors() throws {
+    func uInt16_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt16(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt16(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func uInt16_encodingComposition() throws {
+    func uInt16_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt16.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt16.options([.allowBool]).options == [.allowBool])
     }
@@ -255,13 +256,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func uInt32_staticConstructors() throws {
+    func uInt32_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt32(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt32(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func uInt32_encodingComposition() throws {
+    func uInt32_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt32.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt32.options([.allowBool]).options == [.allowBool])
     }
@@ -282,13 +283,13 @@ struct StringToIntParseStrategy_Tests {
     }
 
     @Test
-    func uInt64_staticConstructors() throws {
+    func uInt64_staticConstructors() {
         #expect(StringToIntParseStrategy.uInt64(options: []).options == [])
         #expect(StringToIntParseStrategy.uInt64(options: [.allowBool]).options == [.allowBool])
     }
 
     @Test
-    func uInt64_encodingComposition() throws {
+    func uInt64_encodingComposition() {
         #expect(StringToIntParseStrategy.uInt64.options([]).options == [])
         #expect(StringToIntParseStrategy.uInt64.options([.allowBool]).options == [.allowBool])
     }

@@ -1,11 +1,12 @@
 //
 //  DataToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `AnyPathMethodParameter` static constructor for `Data` type:
@@ -20,14 +21,14 @@ import SwiftPath
 @Suite
 struct DataToStringFormatStyle_Tests {
     @Test
-    func data() throws {
+    func data() {
         let param = AnyPathMethodParameter.data(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Data.self)
     }
 
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
-    func encodingComposition(encoding: DataToStringFormatStyle.Encoding) throws {
+    func encodingComposition(encoding: DataToStringFormatStyle.Encoding) {
         switch encoding {
         case .base64:
             // struct init
@@ -38,7 +39,7 @@ struct DataToStringFormatStyle_Tests {
     }
 
     @Test
-    func defaultEncoding() throws {
+    func defaultEncoding() {
         // default uses Base64
         let formatter = DataToStringFormatStyle.string
 
@@ -47,7 +48,7 @@ struct DataToStringFormatStyle_Tests {
     }
 
     @Test(arguments: DataToStringFormatStyle.Encoding.allCases)
-    func allEncodings(encoding: DataToStringFormatStyle.Encoding) throws {
+    func allEncodings(encoding: DataToStringFormatStyle.Encoding) {
         // use a switch case on allCases for compiler enforcement of testing all encodings
         switch encoding {
         case .base64:

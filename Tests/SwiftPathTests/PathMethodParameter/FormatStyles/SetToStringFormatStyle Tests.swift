@@ -1,11 +1,12 @@
 //
 //  SetToStringFormatStyle Tests.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
-import Testing
 import SwiftPath
+import Testing
 
 /// This suite tests:
 /// - `Set<Type>` static constructor
@@ -17,14 +18,14 @@ import SwiftPath
 @Suite
 struct SetToStringFormatStyle_Tests {
     @Test
-    func baseline() throws {
+    func baseline() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
         #expect(param.label == "test")
         #expect(type(of: param).Value.self == Set<Int>.self)
     }
 
     @Test
-    func concreteType_defaultSeparator() throws {
+    func concreteType_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
 
         let format = SetToStringFormatStyle(of: Int.self, transform: .string)
@@ -38,7 +39,7 @@ struct SetToStringFormatStyle_Tests {
     }
 
     @Test
-    func concreteType_customSeparator() throws {
+    func concreteType_customSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
 
         let format = SetToStringFormatStyle(of: Int.self, separator: "|", transform: .string)
@@ -52,7 +53,7 @@ struct SetToStringFormatStyle_Tests {
     }
 
     @Test
-    func concreteStatic_defaultSeparator() throws {
+    func concreteStatic_defaultSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
 
         #expect(param.format([] as Set<Int>, format: Set<Int>.stringFormatStyle(transform: .string)) == "")
@@ -64,7 +65,7 @@ struct SetToStringFormatStyle_Tests {
     }
 
     @Test
-    func concreteStatic_customSeparator() throws {
+    func concreteStatic_customSeparator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
 
         #expect(param.format([] as Set<Int>, format: Set<Int>.stringFormatStyle(separator: "|", transform: .string)) == "")
@@ -76,7 +77,7 @@ struct SetToStringFormatStyle_Tests {
     }
 
     @Test
-    func composition_separator() throws {
+    func composition_separator() {
         let param = AnyPathMethodParameter<Set<Int>>(label: "test")
 
         #expect(param.format([] as Set<Int>, format: Set<Int>.stringFormatStyle(transform: .string).separator("|")) == "")

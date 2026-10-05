@@ -1,6 +1,7 @@
 //
 //  StringDictionaryParseablePathMethodParameterValues.swift
-//  SwiftPath
+//  SwiftPath • https://github.com/orchetect/swift-path
+//  © 2026 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -12,7 +13,7 @@ public protocol StringDictionaryParseablePathMethodParameterValues: ParseablePat
     /// Parser used to decode the type's parameter values from a dictionary of `String` key/value pairs.
     associatedtype StringDictionaryParseStrategy: ParseStrategy
         where StringDictionaryParseStrategy.ParseInput == [String: String],
-              StringDictionaryParseStrategy.ParseOutput == Self
+        StringDictionaryParseStrategy.ParseOutput == Self
 
     /// Parser used to decode the type's parameter values from a dictionary of `String` key/value pairs.
     static var stringDictionaryParseStrategy: StringDictionaryParseStrategy { get }
