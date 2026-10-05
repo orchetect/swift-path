@@ -30,21 +30,18 @@ env:
 
 jobs:
   macOS:
-    name: Tests (macOS)
+    name: Tests - Default Traits (macOS)
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
     - uses: actions/checkout@main
-    - uses: maxim-lobanov/setup-xcode@v1
-      with:
-        xcode-version: latest-stable
     - name: Build
-      run: xcodebuild build -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "generic/platform=macOS" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
+      run: xcodebuild build -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "generic/platform=macOS,variant=Mac Catalyst" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
     - name: Unit Tests
-      run: xcodebuild test -skipMacroValidation -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "platform=macOS" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -skipMacroValidation -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "platform=macOS,variant=Mac Catalyst" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
 
   macCatalyst:
-    name: Tests (macCatalyst)
+    name: Tests - All Traits (macCatalyst)
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
@@ -52,13 +49,16 @@ jobs:
     - uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: latest-stable
+    # there is no swift command to edit package traits, so manually editing the package manifest is the best interim solution
+    - name: Enable All Traits
+      run: perl -pi -e 's/\.default\(enabledTraits\: \[\]\)/\.default\(enabledTraits\: \[\"osc\"\]\)/g' Package.swift
     - name: Build
       run: xcodebuild build -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "generic/platform=macOS,variant=Mac Catalyst" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
     - name: Unit Tests
       run: xcodebuild test -skipMacroValidation -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "platform=macOS,variant=Mac Catalyst" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
 
   device-simulators:
-    name: Tests
+    name: Tests - All Traits
     runs-on: macos-latest
     strategy:
       fail-fast: false
@@ -78,6 +78,9 @@ jobs:
         download: true
         scheme: ${{ env.SCHEME }}
         target: ${{ matrix.target }}
+    # there is no swift command to edit package traits, so manually editing the package manifest is the best interim solution
+    - name: Enable All Traits
+      run: perl -pi -e 's/\.default\(enabledTraits\: \[\]\)/\.default\(enabledTraits\: \[\"osc\"\]\)/g' Package.swift
     - name: Build
       run: xcodebuild build -skipMacroValidation -workspace "$WORKSPACEPATH" -scheme "$SCHEME" -destination "generic/platform=$PLATFORMSHORT" | xcbeautify --renderer github-actions && exit ${PIPESTATUS[0]}
       env:
@@ -89,6 +92,31 @@ jobs:
         ID: ${{ steps.sim-setup.outputs.id }}
         PLATFORM: ${{ steps.sim-setup.outputs.platform }}
         WORKSPACEPATH: ${{ steps.sim-setup.outputs.workspace-path }}
+
+  linux:
+    name: Tests - All Traits (Linux)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+    - uses: actions/checkout@main
+    - name: Build
+      run: swift build --enable-all-traits
+    - name: Unit Tests
+      run: swift test --enable-all-traits
+
+  android:
+    name: Build - All Traits (Android)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TARGET_TRIPLE: aarch64-unknown-linux-android28
+    steps:
+    - uses: actions/checkout@main
+    - uses: orchetect/setup-swift-android-sdk@v1
+      with:
+        target-triple: ${{ env.TARGET_TRIPLE }}
+    - name: Build
+      run: swift build --enable-all-traits --swift-sdk "$TARGET_TRIPLE" --static-swift-stdlib
 
   no-traits:
     name: Tests (No Traits)
@@ -102,7 +130,7 @@ jobs:
       run: swift test --disable-default-traits
 
   osc-trait:
-    name: Tests (No Traits)
+    name: Tests (OSC Trait)
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
