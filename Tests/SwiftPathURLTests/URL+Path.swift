@@ -10,6 +10,7 @@ import SwiftPath
 // Since the library does not conform `URL` to `Path` this conformance exists in an isolated test
 // target so as to not pollute the main SwiftPathTests target.
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension URL: Path { }
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
