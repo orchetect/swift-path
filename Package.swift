@@ -12,7 +12,7 @@ let package = Package(
         )
     ],
     traits: [
-        .default(enabledTraits: ["osc"]), // TODO: change `enabledTraits` to `[]` when not under development?
+        .default(enabledTraits: []),
         .trait(name: "osc")
     ],
     dependencies: [
