@@ -20,6 +20,7 @@ import Testing
 struct Nested_Enums_PathComponent_A_Tests {
     // MARK: - `Path` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathComponents() throws {
         #expect(try EnumPath(pathComponents: ["one", "foo", "a"]) == .one(.foo(.a)))
@@ -31,6 +32,7 @@ struct Nested_Enums_PathComponent_A_Tests {
         #expect(try EnumPath(pathComponents: ["three"]) == .three)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathComponents_invalid() throws {
         #expect(throws: PathParseError.pathDoesNotExist) {
@@ -50,6 +52,7 @@ struct Nested_Enums_PathComponent_A_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathComponents() {
         #expect(EnumPath.one(.foo(.a)).pathComponents == ["one", "foo", "a"])
@@ -63,6 +66,7 @@ struct Nested_Enums_PathComponent_A_Tests {
 
     // MARK: - `StringParseablePath` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString() throws {
         // `>` root separator and `.` path separator
@@ -79,6 +83,7 @@ struct Nested_Enums_PathComponent_A_Tests {
         #expect(try EnumPath(pathString: ">three") == .three)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString_invalid() throws {
         // invalid/non-existent paths
@@ -118,6 +123,7 @@ struct Nested_Enums_PathComponent_A_Tests {
 
     // MARK: - `StringFormattablePath` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathString() {
         #expect(EnumPath.one(.foo(.a)).pathString == ">one.foo.a")
@@ -131,6 +137,7 @@ struct Nested_Enums_PathComponent_A_Tests {
 
     // MARK: - `Codable` by way of `StringDecodablePath`/`StringEncodablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func stringEncodeDecode() throws {
         let original = EnumPath.one(.foo(.a))
@@ -164,6 +171,7 @@ extension EnumPath: Path {
     // `init(pathComponents: PathComponents)` default implementation is provided by `ConstructiblePathComponent`
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringParseablePath {
     static let pathStringParseStrategy = PathComponents.ParseStrategy(
         root: nil,
@@ -172,6 +180,7 @@ extension EnumPath: StringParseablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringFormattablePath {
     static let pathStringFormatStyle = PathComponents.FormatStyle(
         root: .absolute,
@@ -180,10 +189,12 @@ extension EnumPath: StringFormattablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringDecodablePath {
     // default implementation is provided when Self conforms to `StringParseablePath`
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringEncodablePath {
     // default implementation is provided when Self conforms to `StringFormattablePath`
 }

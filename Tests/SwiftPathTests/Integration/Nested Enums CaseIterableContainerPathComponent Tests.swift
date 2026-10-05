@@ -15,6 +15,7 @@ import Testing
 /// with a statically-stored property of the same name so that it is not re-computed on every access.
 @Suite
 struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func enumPath_allCases() {
         #expect(EnumPath.allCases == [
@@ -28,6 +29,7 @@ struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
         ])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func subPath_allCases() {
         #expect(SubPath.allCases == [
@@ -37,6 +39,7 @@ struct Nested_Enums_CaseIterableContainerPathComponent_Tests {
         ])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func tertiaryPath_allCases() {
         #expect(TertiaryPath.allCases == [
@@ -60,6 +63,7 @@ extension EnumPath: Path {
     // `init(pathComponents: PathComponents)` default implementation is provided by `ConstructiblePathComponent`
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringParseablePath {
     static let pathStringParseStrategy = PathComponents.ParseStrategy(
         root: nil,
@@ -68,6 +72,7 @@ extension EnumPath: StringParseablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringFormattablePath {
     static let pathStringFormatStyle = PathComponents.FormatStyle(
         root: .absolute,
@@ -76,10 +81,12 @@ extension EnumPath: StringFormattablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringDecodablePath {
     // default implementation is provided when Self conforms to `StringParseablePath`
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EnumPath: StringEncodablePath {
     // default implementation is provided when Self conforms to `StringFormattablePath`
 }

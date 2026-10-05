@@ -17,6 +17,7 @@ import Testing
 struct Nested_Structs_PathComponent_Tests {
     // MARK: - `Path` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathComponents() throws {
         #expect(try RootPath(pathComponents: ["one", "foo", "a"]) == .one(.foo(.a)))
@@ -28,6 +29,7 @@ struct Nested_Structs_PathComponent_Tests {
         #expect(try RootPath(pathComponents: ["three"]) == .three)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathComponents_invalid() throws {
         #expect(throws: PathParseError.pathDoesNotExist) {
@@ -47,6 +49,7 @@ struct Nested_Structs_PathComponent_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathComponents() {
         #expect(RootPath.one(.foo(.a)).pathComponents == ["one", "foo", "a"])
@@ -60,6 +63,7 @@ struct Nested_Structs_PathComponent_Tests {
 
     // MARK: - `StringParseablePath` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString() throws {
         // `>` root separator and `.` path separator
@@ -76,6 +80,7 @@ struct Nested_Structs_PathComponent_Tests {
         #expect(try RootPath(pathString: ">three") == .three)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString_invalid() throws {
         // invalid/non-existent paths
@@ -115,6 +120,7 @@ struct Nested_Structs_PathComponent_Tests {
 
     // MARK: - `StringFormattablePath` Implementation
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathString() {
         #expect(RootPath.one(.foo(.a)).pathString == ">one.foo.a")
@@ -128,6 +134,7 @@ struct Nested_Structs_PathComponent_Tests {
 
     // MARK: - `Codable` by way of `StringDecodablePath`/`StringEncodablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func stringEncodeDecode() throws {
         let original = RootPath.one(.foo(.a))
@@ -181,6 +188,7 @@ extension RootPath: Path {
     // `init(pathComponents: PathComponents)` default implementation is provided by `ConstructiblePathComponent`
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension RootPath: StringParseablePath {
     static let pathStringParseStrategy = PathComponents.ParseStrategy(
         root: nil,
@@ -189,6 +197,7 @@ extension RootPath: StringParseablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension RootPath: StringFormattablePath {
     static let pathStringFormatStyle = PathComponents.FormatStyle(
         root: .absolute,
@@ -197,6 +206,7 @@ extension RootPath: StringFormattablePath {
     )
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension RootPath: StringCodablePath { }
 
 extension RootPath: PathComponent { }
