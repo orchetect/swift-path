@@ -32,6 +32,7 @@ struct URL_Path_Tests {
 
     // MARK: - `StringParseablePath` & `StringFormattablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func roundTrip() throws {
         let url = try URL(pathString: "/foo/bar")

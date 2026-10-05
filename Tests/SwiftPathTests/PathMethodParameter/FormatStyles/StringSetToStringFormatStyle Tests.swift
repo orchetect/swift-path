@@ -76,9 +76,9 @@ struct StringSetToStringFormatStyle_Tests {
     func staticConstructor_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
-        let a = param.format(Set(["b"]), format: .string(sortComparator: .localized))
-        let b = param.format(Set(["b", "b"]), format: .string(sortComparator: .localized))
-        let c = param.format(Set(["c", "a", "b"]), format: .string(sortComparator: .localized))
+        let a = param.format(Set(["b"]), format: .string(sortComparator: .unitTestComparator))
+        let b = param.format(Set(["b", "b"]), format: .string(sortComparator: .unitTestComparator))
+        let c = param.format(Set(["c", "a", "b"]), format: .string(sortComparator: .unitTestComparator))
         #expect(a == "b")
         #expect(b == "b")
         #expect(c == "a,b,c")
@@ -88,9 +88,9 @@ struct StringSetToStringFormatStyle_Tests {
     func staticConstructor_customSeparator_customSortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
-        let a = param.format(Set(["b"]), format: .string(separator: "|", sortComparator: .localized))
-        let b = param.format(Set(["b", "b"]), format: .string(separator: "|", sortComparator: .localized))
-        let c = param.format(Set(["c", "a", "b"]), format: .string(separator: "|", sortComparator: .localized))
+        let a = param.format(Set(["b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
+        let b = param.format(Set(["b", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
+        let c = param.format(Set(["c", "a", "b"]), format: .string(separator: "|", sortComparator: .unitTestComparator))
         #expect(a == "b")
         #expect(b == "b")
         #expect(c == "a|b|c")
@@ -112,7 +112,7 @@ struct StringSetToStringFormatStyle_Tests {
     func composition_separator_sortComparator() {
         let param = AnyPathMethodParameter<Set<String>>(label: "test")
 
-        let string = param.format(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.localized))
+        let string = param.format(Set(["c", "a", "b"]), format: .string.separator("|").sortComparator(.unitTestComparator))
         #expect(string == "a|b|c")
     }
 }
