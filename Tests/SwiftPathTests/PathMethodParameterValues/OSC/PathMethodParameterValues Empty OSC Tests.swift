@@ -13,12 +13,14 @@ import Testing
 
 @Suite
 struct PathMethodParameterValues_Empty_OSC_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_oscValues_A() throws {
         let method = try MyMethod(oscValues: [])
         #expect(method.value == 0)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_oscValues_B() throws {
         #expect(throws: (any Error).self) {
@@ -29,6 +31,7 @@ struct PathMethodParameterValues_Empty_OSC_Tests {
         }
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func oscValues() {
         #expect(MyMethod().oscValues.isEmpty)
@@ -38,6 +41,7 @@ struct PathMethodParameterValues_Empty_OSC_Tests {
 
 // MARK: - Test Types - MyMethod
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 private struct MyMethod {
     let value: Int
 
@@ -54,8 +58,10 @@ private struct MyMethod {
 
 // MARK: - Test Types - MyMethod - `OSCValues`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: EmptyOSCValuesParseablePathMethodParameterValues { }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: EmptyOSCValuesFormattablePathMethodParameterValues { }
 
 #endif

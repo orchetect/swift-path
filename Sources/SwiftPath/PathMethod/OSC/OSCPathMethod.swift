@@ -7,6 +7,7 @@
 #if osc
 
 /// Combination of protocols that define a ``PathMethod`` type usable with OSC (Open Sound Control).
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public typealias OSCPathMethod = OSCMessageFormattablePathMethod & PathMethod
 
 #endif

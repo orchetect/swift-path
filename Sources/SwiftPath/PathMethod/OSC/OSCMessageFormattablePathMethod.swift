@@ -9,6 +9,7 @@
 import Foundation
 import SwiftOSCCore
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol OSCMessageFormattablePathMethod: PathMethod where Path: OSCValuesMethodFormablePath {
     /// Returns the path method encoded as an OSC message.
     var oscMessage: OSCMessage { get }
@@ -19,6 +20,7 @@ public protocol OSCMessageFormattablePathMethod: PathMethod where Path: OSCValue
 
 // MARK: - Default Implementation
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension OSCMessageFormattablePathMethod {
     public var oscMessage: OSCMessage {
         let address = OSCAddressPattern(pathComponents: path.pathComponents.components)
@@ -29,6 +31,7 @@ extension OSCMessageFormattablePathMethod {
 
 // MARK: - Methods
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension OSCMessageFormattablePathMethod {
     public var oscValues: OSCValues {
         formattableOSCValues.oscValues

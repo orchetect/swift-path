@@ -13,12 +13,14 @@ import SwiftOSCCore
 /// default implementation to initialize the type by parsing an empty OSC values array.
 ///
 /// This is provided as a convenience where a type has no parameters.
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public protocol EmptyOSCValuesParseablePathMethodParameterValues: OSCValuesParseablePathMethodParameterValues {
     init()
 }
 
 // MARK: - `OSCValuesParseablePathMethodParameterValues` Default Implementation
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension EmptyOSCValuesParseablePathMethodParameterValues {
     public static var oscValuesParseStrategy: EmptyOSCValuesParseStrategy<Self> {
         EmptyOSCValuesParseStrategy()
@@ -30,6 +32,7 @@ extension EmptyOSCValuesParseablePathMethodParameterValues {
 /// A format style that expects an empty OSC values array.
 ///
 /// This is provided as a convenience where a type has no parameters.
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 public struct EmptyOSCValuesParseStrategy<ParseOutput>: ParseStrategy,
     Sendable where ParseOutput: EmptyOSCValuesParseablePathMethodParameterValues
 {

@@ -13,6 +13,7 @@ import Testing
 
 @Suite
 struct PathMethodParameterValues_OSC_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_oscValues_A() throws {
         let method = try MyMethod(oscValues: [123, "Test"])
@@ -21,6 +22,7 @@ struct PathMethodParameterValues_OSC_Tests {
         #expect(method.bool == nil)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_oscValues_B() throws {
         let method = try MyMethod(oscValues: [123, "Test", true])
@@ -29,6 +31,7 @@ struct PathMethodParameterValues_OSC_Tests {
         #expect(method.bool == true)
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func oscValues_A() throws {
         let array = MyMethod(int: 123, string: "Test", bool: nil).oscValues
@@ -40,6 +43,7 @@ struct PathMethodParameterValues_OSC_Tests {
         #expect(string == "Test")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func oscValues_B() throws {
         let array = MyMethod(int: 123, string: "Test", bool: true).oscValues
@@ -56,6 +60,7 @@ struct PathMethodParameterValues_OSC_Tests {
 
 // MARK: - Test Types - MyMethod
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 private struct MyMethod {
     let int: Int
     let string: String
@@ -72,6 +77,7 @@ private struct MyMethod {
 
 // MARK: - Test Types - MyMethod - `OSCValues`
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: OSCValuesParseablePathMethodParameterValues {
     static let oscValuesParseStrategy = OSCValuesParseStrategy()
 
@@ -87,6 +93,7 @@ extension MyMethod: OSCValuesParseablePathMethodParameterValues {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod: OSCValuesFormattablePathMethodParameterValues {
     static let oscValuesFormatStyle: OSCValuesFormatStyle = .init()
 
