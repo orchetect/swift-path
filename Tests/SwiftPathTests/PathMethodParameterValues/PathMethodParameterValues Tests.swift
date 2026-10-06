@@ -13,7 +13,7 @@ import Testing
 /// It tests the use of the `cast(values:required:optional:)` global method as well.
 @Suite
 struct PathMethodParameterValues_Tests {
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func parseAnyArray_A() throws {
         let method = try MyMethod([123, "Test"], strategy: .anyArray)
@@ -22,7 +22,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == nil)
     }
 
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func parseAnyArray_B() throws {
         #expect(throws: (any Error).self) {
@@ -30,7 +30,7 @@ struct PathMethodParameterValues_Tests {
         }
     }
 
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func parseAnyArray_C() throws {
         let method = try MyMethod([123, "Test", true], strategy: .anyArray)
@@ -65,7 +65,7 @@ struct PathMethodParameterValues_Tests {
         #expect(bool == true)
     }
 
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func parseDictionary_A() throws {
         let method = try MyMethod(["int": 123, "string": "Test"], strategy: .anyDictionary)
@@ -74,7 +74,7 @@ struct PathMethodParameterValues_Tests {
         #expect(method.bool == nil)
     }
 
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
     @Test
     func parseDictionary_B() throws {
         let method = try MyMethod(["int": 123, "string": "Test", "bool": true], strategy: .anyDictionary)
@@ -135,8 +135,8 @@ extension MyMethod: PathMethodParameterValues, ParseablePathMethodParameterValue
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyMethod {
     /// Ordered `Any` values array.
+    @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *) // requirement for `cast(...)`
     struct AnyArrayParseStrategy: ParseStrategy {
-        @available(macOS 14, iOS 17, tvOS 17, watchOS 10, *) // requirement for `cast(...)`
         func parse(_ value: [Any]) throws -> MyMethod {
             let (int, string, bool) = try cast(
                 values: value,
@@ -155,7 +155,7 @@ extension MyMethod {
     }
 }
 
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+@available(macOS 14, iOS 17, tvOS 17, watchOS 10, *)
 extension ParseStrategy where Self == MyMethod.AnyArrayParseStrategy {
     static var anyArray: Self {
         Self()

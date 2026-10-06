@@ -56,6 +56,7 @@ struct AnyPath_Tests {
 
     // MARK: - `StringParseablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString() throws {
         #expect(try AnyPath(pathString: "").pathComponents == [])
@@ -68,6 +69,7 @@ struct AnyPath_Tests {
 
     // MARK: `StringFormattablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathString() {
         #expect(AnyPath(pathComponents: []).pathString == "/")
@@ -76,6 +78,7 @@ struct AnyPath_Tests {
 
     // MARK: - `Codable` by way of `StringDecodablePath`/`StringEncodablePath`
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func stringEncodeDecode() throws {
         let original = AnyPath(pathComponents: ["a", "b"])

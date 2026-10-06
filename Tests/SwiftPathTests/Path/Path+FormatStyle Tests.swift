@@ -10,6 +10,7 @@ import Testing
 @Suite
 struct Path_FormatStyle_Tests {
     /// Test ad-hoc path formatting using a `PathComponents` format style directly on a `Path` type.
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatted_PathComponents() {
         let path = PathA(pathComponents: ["foo", "bar"])

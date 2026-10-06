@@ -173,6 +173,7 @@ extension MyPath: ConstructiblePathComponent {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyPath: OSCValuesMethodFormablePath {
     typealias OSCValuesMethod = MyMethod
 
@@ -194,6 +195,7 @@ extension MyPath: OSCAddressPatternParseablePath {
 
 extension MyPath: OSCAddressPatternFormattablePath { }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyPath: OSCMessageMethodFormablePath { }
 
 // MARK: - Test Types - `MyMethod`

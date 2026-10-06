@@ -9,6 +9,7 @@ import Testing
 
 @Suite
 struct PathComponents_FormatStyle_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition() {
         let style: PathComponents.FormatStyle = .pathComponents
@@ -20,6 +21,7 @@ struct PathComponents_FormatStyle_Tests {
         #expect(style.pathSeparator == ".")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatAbsoluteRoot() {
         let style: PathComponents.FormatStyle = .pathComponents
@@ -42,6 +44,7 @@ struct PathComponents_FormatStyle_Tests {
         #expect(style.format(["//", "///"]) == "///////")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatRelativeRoot() {
         let style: PathComponents.FormatStyle = .pathComponents

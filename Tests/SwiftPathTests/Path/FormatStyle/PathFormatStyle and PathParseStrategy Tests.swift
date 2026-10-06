@@ -12,6 +12,7 @@ import Testing
 /// - Tests ``PathFormatStyle`` and ``PathParseStrategy`` by creating static constructors for them.
 @Suite
 struct PathFormatStyle_and_PathParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_pathString() throws {
         #expect(
@@ -24,6 +25,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func pathString() {
         #expect(
@@ -32,6 +34,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_valueStrategy_usingStaticConstructor() throws {
         #expect(
@@ -44,6 +47,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_valueStrategy_usingCustomStaticConstructor() throws {
         #expect(
@@ -56,6 +60,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func init_valueStrategy_usingInlineConstructor() throws {
         #expect(
@@ -68,6 +73,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatted_usingStaticConstructor() {
         #expect(
@@ -80,6 +86,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatted_usingCustomStaticConstructor() {
         #expect(
@@ -92,6 +99,7 @@ struct PathFormatStyle_and_PathParseStrategy_Tests {
         )
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func formatted_usingInlineConstructor() {
         #expect(
@@ -115,6 +123,7 @@ private struct MyPath {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyPath: Path {
     var pathString: String {
         pathComponents.formatted()
@@ -127,6 +136,7 @@ extension MyPath: Path {
 
 // MARK: Parser and Formatter
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension MyPath {
     struct ParseStrategy: Foundation.ParseStrategy {
         func parse(_ value: PathComponents) throws -> MyPath {
@@ -143,12 +153,14 @@ extension MyPath {
 
 // MARK: Custom Static Constructors
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension FormatStyle where Self == PathFormatStyle<MyPath, MyPath.FormatStyle, PathComponents.FormatStyle> {
     fileprivate static var myPath: Self {
         Self(for: MyPath.self, path: MyPath.FormatStyle(), components: .pathComponents)
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension ParseStrategy where Self == PathParseStrategy<MyPath, PathComponents.ParseStrategy, MyPath.ParseStrategy> {
     fileprivate static var myPath: Self {
         Self(for: MyPath.self, components: .pathComponents, path: MyPath.ParseStrategy())

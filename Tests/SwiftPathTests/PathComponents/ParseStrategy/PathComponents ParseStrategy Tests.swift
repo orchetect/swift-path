@@ -9,6 +9,7 @@ import Testing
 
 @Suite
 struct PathComponents_ParseStrategy_Tests {
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func composition() {
         let strategy: PathComponents.ParseStrategy = .pathComponents
@@ -20,6 +21,7 @@ struct PathComponents_ParseStrategy_Tests {
         #expect(strategy.pathSeparator == ".")
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseAbsoluteOrRelativeRoot() throws {
         let strategy: PathComponents.ParseStrategy = .pathComponents
@@ -48,6 +50,7 @@ struct PathComponents_ParseStrategy_Tests {
         #expect(try strategy.parse("/.") == ["."])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseAbsoluteRoot() throws {
         let strategy: PathComponents.ParseStrategy = .pathComponents
@@ -76,6 +79,7 @@ struct PathComponents_ParseStrategy_Tests {
         #expect(try strategy.parse("/.") == ["."])
     }
 
+    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     @Test
     func parseRelativeRoot() throws {
         let strategy: PathComponents.ParseStrategy = .pathComponents
