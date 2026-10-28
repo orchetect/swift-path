@@ -91,16 +91,17 @@ jobs:
         PLATFORM: ${{ steps.sim-setup.outputs.platform }}
         WORKSPACEPATH: ${{ steps.sim-setup.outputs.workspace-path }}
 
-  linux:
-    name: Tests - All Traits (Linux)
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-    - uses: actions/checkout@main
-    - name: Build
-      run: swift build --enable-all-traits
-    - name: Unit Tests
-      run: swift test --enable-all-traits
+  # Linux CI job omitted until Linux support is added to the library
+  # linux:
+  #   name: Tests - All Traits (Linux)
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 20
+  #   steps:
+  #   - uses: actions/checkout@main
+  #   - name: Build
+  #     run: swift build --enable-all-traits
+  #   - name: Unit Tests
+  #     run: swift test --enable-all-traits
 
   android:
     name: Build - All Traits (Android)
